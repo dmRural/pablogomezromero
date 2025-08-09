@@ -1,0 +1,26 @@
+---
+import fs from "fs";
+import path from "path";
+
+export interface Props {
+  name: "instagram" | string;
+  class?: string;
+}
+
+const { name, class: className = "w-6 h-6" } = Astro.props;
+
+if (!name) {
+  throw new Error("El nombre del icono es requerido");
+}
+
+const filePath = path.resolve("./public/icons", `${name}.svg`);
+let svgContent = "";
+
+try {
+  svgContent = fs.readFileSync(filePath, "utf-8");
+} catch (err) {
+  throw new Error(`No se pudo cargar el icono: ${name}`);
+}
+---
+
+<div class={className} set:html={svgContent} />
