@@ -6,6 +6,9 @@ import AccentText from "../components/AccentText.astro";
 import Icon from "../components/Icon.astro";
 import SubSubTitle from "../components/SubSubTitle.astro";
 import Text from "../components/Text.astro";
+import { getCollection } from "astro:content";
+
+const features = await getCollection("features");
 ---
 
 <Layout>
@@ -55,67 +58,17 @@ import Text from "../components/Text.astro";
       <div
         class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-12 md:space-y-0"
       >
-        <div class="flex flex-col gap-6">
-          <div class="flex gap-2 items-center rounded-full bg-primary-100">
-            <Icon name="microphone" class="w-6 h-6 fill-[black]" />
-            <SubSubTitle>Operations</SubSubTitle>
-          </div>
-          <Text>
-            Plan it, create it, launch it. Collaborate seamlessly with all the
-            organization and hit your marketing goals every month with our
-            marketing plan.
-          </Text>
-        </div>
-        <div class="flex flex-col gap-6">
-          <div class="flex gap-2 items-center rounded-full bg-primary-100">
-            <Icon name="microphone" class="w-6 h-6 fill-[black]" />
-            <SubSubTitle>Operations</SubSubTitle>
-          </div>
-          <Text>
-            Protect your organization, devices and stay compliant with our
-            structured workflows and custom permissions made for you.
-          </Text>
-        </div>
-        <div class="flex flex-col gap-6">
-          <div class="flex gap-2 items-center rounded-full bg-primary-100">
-            <Icon name="microphone" class="w-6 h-6 fill-[black]" />
-            <SubSubTitle>Operations</SubSubTitle>
-          </div>
-          <Text>
-            Auto-assign tasks, send Slack messages, and much more. Now power up
-            with hundreds of new templates to help you get started.
-          </Text>
-        </div>
-        <div class="flex flex-col gap-6">
-          <div class="flex gap-2 items-center rounded-full bg-primary-100">
-            <Icon name="microphone" class="w-6 h-6 fill-[black]" />
-            <SubSubTitle>Operations</SubSubTitle>
-          </div>
-          <Text>
-            Audit-proof software built for critical financial operations like
-            month-end close and quarterly budgeting.
-          </Text>
-        </div>
-        <div class="flex flex-col gap-6">
-          <div class="flex gap-2 items-center rounded-full bg-primary-100">
-            <Icon name="microphone" class="w-6 h-6 fill-[black]" />
-            <SubSubTitle>Operations</SubSubTitle>
-          </div>
-          <Text>
-            Craft beautiful, delightful experiences for both marketing and
-            product with real cross-company collaboration.
-          </Text>
-        </div>
-        <div class="flex flex-col gap-6">
-          <div class="flex gap-2 items-center rounded-full bg-primary-100">
-            <Icon name="microphone" class="w-6 h-6 fill-[black]" />
-            <SubSubTitle>Operations</SubSubTitle>
-          </div>
-          <Text>
-            Keep your company’s lights on with customizable, iterative, and
-            structured workflows built for all efficient teams and individual.
-          </Text>
-        </div>
+        {
+          features.map((feature) => (
+            <div class="flex flex-col gap-6">
+              <div class="flex gap-2 items-center rounded-full bg-primary-100">
+                <Icon name={feature.data.icon} class="w-6 h-6 fill-[black]" />
+                <SubSubTitle>{feature.data.title}</SubSubTitle>
+              </div>
+              <Text>{feature.data.description}</Text>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
