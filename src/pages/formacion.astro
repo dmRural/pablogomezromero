@@ -1,20 +1,180 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { SITE_TITLE } from "../consts";
+import Title from "../components/Title.astro";
+import SubSubTitle from "../components/SubSubTitle.astro";
+import Text from "../components/Text.astro";
 ---
 
 <Layout
   title={`Formación | ${SITE_TITLE}`}
-  description="Página de formación de Pablo Gómez Romero"
+  description="Cursos y formaciones especializadas en finanzas, economía y educación financiera con Pablo Gómez Romero"
 >
   <main>
     <div class="container mx-auto px-5 py-10">
-      <h1 class="text-4xl font-bold text-center mb-8">Formación</h1>
+      <Title text="CURSOS" />
 
-      <div class="max-w-3xl mx-auto">
-        <p class="text-center text-gray-600 text-lg">
-          Contenido próximamente...
-        </p>
+      <div class="mx-auto space-y-8">
+        <!-- Sección destacada de introducción -->
+        <div
+          class="bg-gradient-to-r from-blue-600 to-purple-700 text-white p-8 rounded-xl shadow-lg mb-12"
+        >
+          <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6">
+              Formación que marca la diferencia
+            </h2>
+            <p class="text-lg md:text-xl leading-relaxed mb-6 text-blue-100">
+              Este servicio consiste en diversas <strong class="text-white"
+                >FORMACIONES y CONFERENCIAS</strong
+              >
+              realizadas en un tono y ambiente distendido, cercano, cordial y sin
+              tecnicismos. Los asistentes deben entender perfectamente los contenidos
+              y usarlos luego en su vida diaria.
+            </p>
+            <div class="border-t border-blue-300 pt-6 mt-6">
+              <p class="text-blue-100 text-lg font-medium mb-4">
+                ¿Piensas que está todo inventado en el mundo de la Formación?
+              </p>
+              <p class="text-white text-xl font-semibold">
+                Cuenta con nosotros para que sean más dinámicas y especiales…
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Eventos donde participamos -->
+        <div
+          class="bg-white border-l-4 border-blue-500 p-6 rounded-lg shadow-md"
+        >
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">
+            Eventos y Actos formativos en los que participamos:
+          </h3>
+          <div class="grid md:grid-cols-2 gap-4 text-gray-700">
+            <div class="flex items-center space-x-2">
+              <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+              <span>Eventos de Empresas</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+              <span>Presentaciones de Productos/Servicios</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+              <span>Actos de Asociaciones</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+              <span>Reuniones Profesionales</span>
+            </div>
+          </div>
+          <p class="mt-4 text-gray-600 font-medium">
+            Colaboramos habitualmente con <span
+              class="text-blue-600 font-semibold">Centros de Estudios</span
+            >,
+            <span class="text-blue-600 font-semibold">Escuelas de Negocios</span
+            > y
+            <span class="text-blue-600 font-semibold">Universidades</span>.
+          </p>
+        </div>
+
+        <!-- FORMACIÓN PRESENCIAL -->
+        <div class="bg-gray-50 p-8 rounded-lg mt-12">
+          <SubSubTitle text="PRESENCIAL" />
+
+          <div class="space-y-8 mt-6">
+            <div>
+              <h3 class="text-xl font-semibold mb-4 text-gray-800">
+                Talleres de Educación Financiera básica
+              </h3>
+              <Text>
+                Un proceso de educación financiera a un nivel básico está
+                enfocado en los conceptos del dinero y las maneras para
+                manejarlo adecuadamente a partir de generar habilidades en el
+                uso de diversas herramientas financieras. Este proceso se adapta
+                a todo nivel de conocimientos, edades y condiciones sociales.
+              </Text>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold mb-4 text-gray-800">
+                Cursos específicos de finanzas
+              </h3>
+              <Text>
+                Adaptamos nuestros cursos a cualquier punto referente a la
+                economía como ciencia social que estudia la forma de administrar
+                los recursos disponibles para satisfacer las necesidades
+                humanas. Por supuesto, también evaluamos el comportamiento y las
+                acciones de los seres humanos con referencia a la economía.
+              </Text>
+            </div>
+
+            <div>
+              <h3 class="text-xl font-semibold mb-4 text-gray-800">
+                Talleres de Economía
+              </h3>
+              <Text>
+                Adaptamos nuestros cursos a cualquier punto referente a la
+                economía como ciencia social que estudia la forma de administrar
+                los recursos disponibles para satisfacer las necesidades
+                humanas. Por supuesto, también evaluamos el comportamiento y las
+                acciones de los seres humanos con referencia a la economía.
+              </Text>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORMACIÓN ONLINE -->
+        <div class="bg-blue-50 p-8 rounded-lg mt-8">
+          <SubSubTitle text="ONLINE" />
+
+          <div class="space-y-6 mt-6">
+            <Text> Posibilidad de hacer los anteriores cursos por ZOOM </Text>
+
+            <div class="bg-white p-6 rounded-lg border-l-4 border-blue-500">
+              <h3 class="text-lg font-semibold mb-4 text-gray-800">
+                ¿Quieres más información sobre nuestra formación online en
+                directo?
+              </h3>
+
+              <!-- Placeholder para formulario de contacto -->
+              <div
+                class="bg-gray-100 p-4 rounded border-2 border-dashed border-gray-300 text-center text-gray-600"
+              >
+                <p class="mb-2">Formulario de contacto</p>
+                <p class="text-sm">
+                  [Aquí iría el formulario de Contact Form 7]
+                </p>
+              </div>
+            </div>
+
+            <div class="text-center mt-6">
+              <Text> Posibilidad de comprar un curso online </Text>
+              <button
+                class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300"
+              >
+                Ver Cursos Online
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div
+          class="text-center mt-12 p-8 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg"
+        >
+          <h3 class="text-2xl font-bold mb-4">
+            ¿Interesado en nuestros cursos?
+          </h3>
+          <p class="mb-6">
+            Contacta con nosotros para más información sobre nuestros programas
+            de formación
+          </p>
+          <button
+            class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg hover:bg-gray-100 transition duration-300"
+          >
+            Contactar
+          </button>
+        </div>
       </div>
     </div>
   </main>
