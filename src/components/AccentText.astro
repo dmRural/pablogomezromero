@@ -1,5 +1,14 @@
 ---
+interface Props {
+  variant?: "blue" | "gray";
+}
 
+const { variant = "blue" } = Astro.props;
+
+const variants = {
+  blue: "text-sky-800 font-extrabold",
+  gray: "text-gray-50 font-extrabold",
+};
 ---
 
-<span class="text-sky-800"><slot /></span>
+<span class={variants[variant]}><slot /></span>

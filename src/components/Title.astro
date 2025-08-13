@@ -1,9 +1,18 @@
 ---
+interface Props {
+  variant?: "dark" | "light";
+}
 
+const { variant = "dark" } = Astro.props;
+
+const variants = {
+  dark: "text-gray-800",
+  light: "text-white",
+};
 ---
 
 <h1
-  class="text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tighter text-gray-800 uppercase"
+  class={`text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tighter ${variants[variant]} uppercase`}
 >
   <slot />
 </h1>

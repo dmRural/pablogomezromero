@@ -2,10 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import { SITE_TITLE } from "../consts";
 import Title from "../components/Title.astro";
+import SectionTitle from "../components/SectionTitle.astro";
 import SubSubTitle from "../components/SubSubTitle.astro";
+import SubSubSubTitle from "../components/SubSubSubTitle.astro";
 import Text from "../components/Text.astro";
 import Button from "../components/Button.astro";
+import Banner from "../components/Banner.astro";
+import Block from "../components/Block.astro";
 import { Vimeo } from "astro-embed";
+import AccentText from "../components/AccentText.astro";
 ---
 
 <Layout
@@ -14,26 +19,21 @@ import { Vimeo } from "astro-embed";
 >
   <main>
     <div class="container mx-auto px-5 py-10">
-      <Title text="CURSOS" />
+      <SectionTitle text="CURSOS" variant="gradient" size="xl" />
 
       <div class="mx-auto space-y-8">
         <!-- Sección destacada de introducción -->
-        <div
-          class="bg-gradient-to-r from-sky-600 to-purple-700 text-white p-8 rounded-xl shadow-lg mb-12"
-        >
-          <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-2xl md:text-3xl font-bold mb-6">
-              Formación que marca la diferencia
-            </h2>
-            <p class="text-lg md:text-xl leading-relaxed mb-6 text-sky-100">
-              Este servicio consiste en diversas <strong class="text-white"
-                >FORMACIONES y CONFERENCIAS</strong
-              >
+        <Banner>
+          <div class="max-w-4xl mx-auto text-center flex flex-col gap-6">
+            <Title variant="light"> Formación que marca la diferencia </Title>
+            <p class="text-lg md:text-xl leading-relaxed text-sky-100">
+              Este servicio consiste en diversas
+              <AccentText variant="gray">FORMACIONES y CONFERENCIAS</AccentText>
               realizadas en un tono y ambiente distendido, cercano, cordial y sin
               tecnicismos. Los asistentes deben entender perfectamente los contenidos
               y usarlos luego en su vida diaria.
             </p>
-            <div class="border-t border-sky-300 pt-6 mt-6">
+            <div class="border-t border-sky-300 pt-6">
               <p class="text-sky-100 text-lg font-medium mb-4">
                 ¿Piensas que está todo inventado en el mundo de la Formación?
               </p>
@@ -42,7 +42,7 @@ import { Vimeo } from "astro-embed";
               </p>
             </div>
           </div>
-        </div>
+        </Banner>
 
         <!-- Eventos donde participamos -->
         <div
@@ -79,110 +79,97 @@ import { Vimeo } from "astro-embed";
           </p>
         </div>
 
-        <!-- FORMACIÓN PRESENCIAL -->
-        <div class="bg-gray-50 p-8 rounded-lg mt-12">
-          <SubSubTitle text="PRESENCIAL" />
+        <!-- FORMACIÓN PRESENCIAL Y ONLINE -->
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- FORMACIÓN PRESENCIAL -->
+          <Block variant="gray">
+            <SubSubTitle>PRESENCIAL</SubSubTitle>
 
-          <div class="space-y-8 mt-6">
-            <div>
-              <h3 class="text-xl font-semibold mb-4 text-gray-800">
-                Talleres de Educación Financiera básica
-              </h3>
-              <Text>
-                Un proceso de educación financiera a un nivel básico está
-                enfocado en los conceptos del dinero y las maneras para
-                manejarlo adecuadamente a partir de generar habilidades en el
-                uso de diversas herramientas financieras. Este proceso se adapta
-                a todo nivel de conocimientos, edades y condiciones sociales.
-              </Text>
-            </div>
+            <div class="space-y-8 mt-6">
+              <div>
+                <SubSubSubTitle>
+                  Talleres de Educación Financiera básica
+                </SubSubSubTitle>
+                <Text>
+                  Un proceso de educación financiera a un nivel básico está
+                  enfocado en los conceptos del dinero y las maneras para
+                  manejarlo adecuadamente a partir de generar habilidades en el
+                  uso de diversas herramientas financieras. Este proceso se
+                  adapta a todo nivel de conocimientos, edades y condiciones
+                  sociales.
+                </Text>
+              </div>
 
-            <div>
-              <h3 class="text-xl font-semibold mb-4 text-gray-800">
-                Cursos específicos de finanzas
-              </h3>
-              <Text>
-                Adaptamos nuestros cursos a cualquier punto referente a la
-                economía como ciencia social que estudia la forma de administrar
-                los recursos disponibles para satisfacer las necesidades
-                humanas. Por supuesto, también evaluamos el comportamiento y las
-                acciones de los seres humanos con referencia a la economía.
-              </Text>
-            </div>
+              <div>
+                <SubSubSubTitle>
+                  Cursos específicos de finanzas
+                </SubSubSubTitle>
+                <Text>
+                  Adaptamos nuestros cursos a cualquier punto referente a la
+                  economía como ciencia social que estudia la forma de
+                  administrar los recursos disponibles para satisfacer las
+                  necesidades humanas. Por supuesto, también evaluamos el
+                  comportamiento y las acciones de los seres humanos con
+                  referencia a la economía.
+                </Text>
+              </div>
 
-            <div>
-              <h3 class="text-xl font-semibold mb-4 text-gray-800">
-                Talleres de Economía
-              </h3>
-              <Text>
-                Adaptamos nuestros cursos a cualquier punto referente a la
-                economía como ciencia social que estudia la forma de administrar
-                los recursos disponibles para satisfacer las necesidades
-                humanas. Por supuesto, también evaluamos el comportamiento y las
-                acciones de los seres humanos con referencia a la economía.
-              </Text>
-            </div>
-          </div>
-        </div>
-
-        <!-- FORMACIÓN ONLINE -->
-        <div class="bg-sky-50 p-8 rounded-lg mt-8">
-          <SubSubTitle text="ONLINE" />
-
-          <div class="space-y-6 mt-6">
-            <Text> Posibilidad de hacer los anteriores cursos por ZOOM </Text>
-
-            <div class="bg-white p-6 rounded-lg border-l-4 border-sky-500">
-              <h3 class="text-lg font-semibold mb-4 text-gray-800">
-                ¿Quieres más información sobre nuestra formación online en
-                directo?
-              </h3>
-
-              <!-- Placeholder para formulario de contacto -->
+              <div>
+                <SubSubSubTitle> Talleres de Economía </SubSubSubTitle>
+                <Text>
+                  Adaptamos nuestros cursos a cualquier punto referente a la
+                  economía como ciencia social que estudia la forma de
+                  administrar los recursos disponibles para satisfacer las
+                  necesidades humanas. Por supuesto, también evaluamos el
+                  comportamiento y las acciones de los seres humanos con
+                  referencia a la economía.
+                </Text>
+              </div>
               <div
-                class="bg-gray-100 p-4 rounded border-2 border-dashed border-gray-300 text-center text-gray-600"
+                class="text-center mt-12 p-8 bg-gradient-to-r from-sky-500 to-purple-600 text-white rounded-lg"
               >
-                <p class="mb-2">Formulario de contacto</p>
-                <p class="text-sm">
-                  [Aquí iría el formulario de Contact Form 7]
+                <h3 class="text-2xl font-bold mb-4">
+                  ¿Interesado en nuestros cursos?
+                </h3>
+                <p class="mb-6">
+                  Contacta con nosotros para más información sobre nuestros
+                  programas de formación
                 </p>
+                <a
+                  href="https://wa.me/34659291511?text=Hola,%20estoy%20interesado%20en%20información%20sobre%20los%20cursos%20de%20formación"
+                  target="_blank"
+                >
+                  <Button variant="white">Contactar con nosotros</Button>
+                </a>
               </div>
             </div>
+          </Block>
 
-            <div
-              class="bg-white p-6 rounded-lg shadow-md border border-sky-200"
-            >
-              <h3 class="text-xl font-semibold mb-6 text-gray-800 text-center">
-                Descubre nuestros cursos online
-              </h3>
+          <!-- FORMACIÓN ONLINE -->
+          <Block variant="blue">
+            <SubSubTitle>ONLINE</SubSubTitle>
 
-              <!-- Video de Vimeo -->
+            <div class="space-y-6 mt-6">
+              <Text>Descubre nuestros cursos online</Text>
+              <Text />
               <div class="mb-6">
                 <Vimeo id="502573980" />
               </div>
-
-              <div class="text-center">
-                <p class="text-gray-600 mb-4 text-lg">
-                  Posibilidad de comprar un curso online
+              <div
+                class="text-center mt-12 p-8 bg-gradient-to-r from-orange-600 to-red-500 text-white rounded-lg"
+              >
+                <h3 class="text-2xl font-bold mb-4">
+                  ¿Quieres probar el curso online?
+                </h3>
+                <p class="mb-6">
+                  Puedes acceder a la plataforma y explorarlo tú mismo.
                 </p>
-                <Button variant="primary">Ver curso online</Button>
+                <a href="https://produccionesanafilaxis.com/" target="_blank">
+                  <Button variant="white">Acceder a la plataforma</Button>
+                </a>
               </div>
             </div>
-          </div>
-        </div>
-
-        <!-- Call to Action -->
-        <div
-          class="text-center mt-12 p-8 bg-gradient-to-r from-sky-500 to-purple-600 text-white rounded-lg"
-        >
-          <h3 class="text-2xl font-bold mb-4">
-            ¿Interesado en nuestros cursos?
-          </h3>
-          <p class="mb-6">
-            Contacta con nosotros para más información sobre nuestros programas
-            de formación
-          </p>
-          <Button variant="white">Contactar</Button>
+          </Block>
         </div>
       </div>
     </div>
