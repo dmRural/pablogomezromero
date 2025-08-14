@@ -1,7 +1,7 @@
 ---
 interface Props {
   text?: string;
-  variant?: "default" | "gradient" | "outlined";
+  variant?: "default" | "outlined";
   size?: "sm" | "md" | "lg" | "xl";
   centered?: boolean;
 }
@@ -10,8 +10,6 @@ const { text, variant = "default", size = "lg", centered = true } = Astro.props;
 
 const variants = {
   default: "text-gray-800",
-  gradient:
-    "bg-gradient-to-r from-sky-800 to-purple-800 bg-clip-text text-transparent",
   outlined: "text-sky-800 border-b-4 border-sky-800 pb-2",
 };
 
@@ -24,30 +22,20 @@ const sizes = {
 
 const alignment = centered ? "text-center" : "";
 
-const titleClasses = `${variant !== "gradient" ? variants[variant] : ""} ${sizes[size]} ${alignment} font-extrabold tracking-tighter uppercase mb-8 relative`;
+const titleClasses = `${variants[variant]} ${sizes[size]} ${alignment} font-extrabold tracking-tighter uppercase mb-8 relative`;
 ---
 
 <div class={centered ? "text-center" : ""}>
-  {
-    variant === "gradient" ? (
-      <h1
-        class={`${sizes[size]} ${alignment} font-extrabold tracking-tight uppercase mb-8 relative`}
-      >
-        <span class="bg-gradient-to-r from-sky-600 to-purple-600 bg-clip-text text-transparent">
-          {text}
-        </span>
-      </h1>
-    ) : (
-      <h1 class={titleClasses}>
-        {text && (
-          <>
-            <span class="relative z-10">{text}</span>
-            {variant === "default" && (
-              <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-sky-500 to-purple-500 rounded-full" />
-            )}
-          </>
-        )}
-      </h1>
-    )
-  }
+  <h1 class={titleClasses}>
+    {
+      text && (
+        <>
+          <span class="relative z-10">{text}</span>
+          {variant === "default" && (
+            <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-sky-600 to-sky-800 rounded-full" />
+          )}
+        </>
+      )
+    }
+  </h1>
 </div>
