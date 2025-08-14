@@ -11,6 +11,7 @@ import Banner from "../components/Banner.astro";
 import Block from "../components/Block.astro";
 import { Vimeo } from "astro-embed";
 import AccentText from "../components/AccentText.astro";
+import Bullet from "../components/Bullet.astro";
 ---
 
 <Layout
@@ -45,29 +46,15 @@ import AccentText from "../components/AccentText.astro";
         </Banner>
 
         <!-- Eventos donde participamos -->
-        <div
-          class="bg-white border-l-4 border-sky-500 p-6 rounded-lg shadow-md"
-        >
+        <Banner variant="light">
           <h3 class="text-xl font-semibold text-gray-800 mb-4">
             Eventos y Actos formativos en los que participamos:
           </h3>
           <div class="grid md:grid-cols-2 gap-4 text-gray-700">
-            <div class="flex items-center space-x-2">
-              <span class="w-2 h-2 bg-sky-500 rounded-full"></span>
-              <span>Eventos de Empresas</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="w-2 h-2 bg-sky-500 rounded-full"></span>
-              <span>Presentaciones de Productos/Servicios</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="w-2 h-2 bg-sky-500 rounded-full"></span>
-              <span>Actos de Asociaciones</span>
-            </div>
-            <div class="flex items-center space-x-2">
-              <span class="w-2 h-2 bg-sky-500 rounded-full"></span>
-              <span>Reuniones Profesionales</span>
-            </div>
+            <Bullet text="Eventos de Empresas" />
+            <Bullet text="Presentaciones de Productos/Servicios" />
+            <Bullet text="Actos de Asociaciones" />
+            <Bullet text="Reuniones Profesionales" />
           </div>
           <p class="mt-4 text-gray-600 font-medium">
             Colaboramos habitualmente con <span
@@ -77,7 +64,7 @@ import AccentText from "../components/AccentText.astro";
             y
             <span class="text-sky-600 font-semibold">Universidades</span>.
           </p>
-        </div>
+        </Banner>
 
         <!-- FORMACIÓN PRESENCIAL Y ONLINE -->
         <div class="grid md:grid-cols-2 gap-8">
@@ -125,23 +112,24 @@ import AccentText from "../components/AccentText.astro";
                   referencia a la economía.
                 </Text>
               </div>
-              <div
-                class="text-center mt-12 p-8 bg-gradient-to-r from-sky-500 to-purple-600 text-white rounded-lg"
-              >
-                <h3 class="text-2xl font-bold mb-4">
-                  ¿Interesado en nuestros cursos?
-                </h3>
-                <p class="mb-6">
-                  Contacta con nosotros para más información sobre nuestros
-                  programas de formación
-                </p>
-                <a
-                  href="https://wa.me/34659291511?text=Hola,%20estoy%20interesado%20en%20información%20sobre%20los%20cursos%20de%20formación"
-                  target="_blank"
-                >
-                  <Button variant="white">Contactar con nosotros</Button>
-                </a>
-              </div>
+              <Banner variant="blue">
+                <div class="flex flex-col items-center">
+                  <SubSubSubTitle variant="light">
+                    ¿Interesado en nuestros cursos?
+                  </SubSubSubTitle>
+                  <Text align="center">
+                    Contacta con nosotros para más información sobre nuestros
+                    programas de formación
+                  </Text>
+                  <a
+                    class="mt-6"
+                    href="https://wa.me/34659291511?text=Hola,%20estoy%20interesado%20en%20información%20sobre%20los%20cursos%20de%20formación"
+                    target="_blank"
+                  >
+                    <Button variant="white">Contacta con nosotros</Button>
+                  </a>
+                </div>
+              </Banner>
             </div>
           </Block>
 
@@ -155,19 +143,23 @@ import AccentText from "../components/AccentText.astro";
               <div class="mb-6">
                 <Vimeo id="502573980" />
               </div>
-              <div
-                class="text-center mt-12 p-8 bg-gradient-to-r from-orange-600 to-red-500 text-white rounded-lg"
-              >
-                <h3 class="text-2xl font-bold mb-4">
-                  ¿Quieres probar el curso online?
-                </h3>
-                <p class="mb-6">
-                  Puedes acceder a la plataforma y explorarlo tú mismo.
-                </p>
-                <a href="https://produccionesanafilaxis.com/" target="_blank">
-                  <Button variant="white">Acceder a la plataforma</Button>
-                </a>
-              </div>
+              <Banner variant="contrast">
+                <div class="flex flex-col items-center">
+                  <SubSubSubTitle variant="light">
+                    ¿Quieres probar el curso online?
+                  </SubSubSubTitle>
+                  <Text align="center">
+                    Puedes acceder a la plataforma y explorarlo tú mismo.
+                  </Text>
+                  <a
+                    href="https://produccionesanafilaxis.com/"
+                    target="_blank"
+                    class="mt-6"
+                  >
+                    <Button variant="white">Acceder a la plataforma</Button>
+                  </a>
+                </div>
+              </Banner>
             </div>
           </Block>
         </div>

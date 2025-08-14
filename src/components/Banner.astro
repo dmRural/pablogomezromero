@@ -9,7 +9,8 @@ const { variant = "blue", class: className = "" } = Astro.props;
 const variants = {
   blue: "bg-gradient-to-r from-sky-600 to-purple-700 text-white",
   contrast: "bg-gradient-to-r from-orange-500 to-red-600 text-white",
-  gray: "bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800",
+  light:
+    "bg-gradient-to-r from-white to-gray-50 text-gray-800 bl-2 border-l-4 border-sky-300",
 };
 
 const bannerClasses = `${variants[variant]} p-8 rounded-xl shadow-lg mb-12 ${className}`;

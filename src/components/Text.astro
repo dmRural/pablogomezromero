@@ -1,5 +1,19 @@
 ---
+interface Props {
+  align?: "left" | "center" | "right";
+}
 
+const { align = "left" } = Astro.props;
+
+const alignments = {
+  left: "text-left",
+  center: "text-center",
+  right: "text-right",
+};
 ---
 
-<p class="leading-relaxed text-balance font-sans text-lg"><slot /></p>
+<p
+  class={`leading-relaxed text-balance font-sans text-lg ${alignments[align]}`}
+>
+  <slot />
+</p>

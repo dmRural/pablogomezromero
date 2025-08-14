@@ -1,0 +1,23 @@
+---
+export interface Props {
+  text: string;
+  variant?: "sky" | "gray" | "blue" | "green" | "red";
+}
+
+const { text, variant = "sky" } = Astro.props;
+
+const colorClasses = {
+  sky: "bg-sky-500",
+  gray: "bg-gray-500",
+  blue: "bg-blue-500",
+  green: "bg-green-500",
+  red: "bg-red-500",
+};
+
+const bulletColor = colorClasses[variant];
+---
+
+<div class="flex items-center space-x-2">
+  <span class={`w-2 h-2 ${bulletColor} rounded-full`}></span>
+  <span>{text}</span>
+</div>
