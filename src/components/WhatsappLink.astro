@@ -1,0 +1,27 @@
+---
+import { WHATSAPP_PHONE_NUMBER } from "../consts";
+
+interface Props {
+  text?: string;
+  phoneNumber?: string;
+  class?: string;
+}
+
+const {
+  text = "Hola, estoy interesado en más información",
+  class: className = "",
+} = Astro.props;
+
+// Codificar el texto para la URL
+const encodedText = encodeURIComponent(text);
+const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE_NUMBER}?text=${encodedText}`;
+---
+
+<a
+  href={whatsappUrl}
+  target="_blank"
+  rel="noopener noreferrer"
+  class={className}
+>
+  <slot />
+</a>
