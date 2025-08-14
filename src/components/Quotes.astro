@@ -1,0 +1,203 @@
+---
+import Icon from "./Icon.astro";
+
+interface Quote {
+  description: string;
+  author: string;
+}
+
+interface Props {
+  quotes: Quote[];
+  autoplay?: boolean;
+  interval?: number;
+}
+
+const { quotes, autoplay = true, interval = 5000 } = Astro.props;
+---
+
+<div class="quotes-carousel relative mx-auto py-8 isolate">
+  <div
+    class="relative overflow-hidden rounded-lg bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 shadow-xl"
+  >
+    <!-- Slides container -->
+    <div
+      id="quotes-slider"
+      class="flex transition-transform duration-500 ease-in-out"
+    >
+      {
+        quotes.map((quote, index) => (
+          <div
+            class="w-full flex-shrink-0 px-8 py-12 md:px-16 md:py-16"
+            data-slide={index}
+          >
+            <div class="text-center max-w-3xl mx-auto">
+              <blockquote class="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8 italic flex items-start justify-center gap-3">
+                <Icon
+                  name="quote"
+                  class="w-8 h-8 fill-sky-600 flex-shrink-0 mt-1"
+                />
+                <span>{quote.description}</span>
+              </blockquote>
+
+              <cite class="text-base font-semibold text-sky-600 dark:text-sky-400 not-italic">
+                {quote.author}
+              </cite>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Navigation dots -->
+    <div
+      class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"
+    >
+      {
+        quotes.map((_, index) => (
+          <button
+            class="quote-dot w-3 h-3 rounded-full bg-gray-400 hover:bg-sky-600 transition-all duration-300 ease-out focus:outline-sky-500 focus:outline-2 focus:outline-offset-2"
+            data-slide-to={index}
+            aria-label={`Ir a la cita ${index + 1}`}
+          />
+        ))
+      }
+    </div>
+
+    <!-- Navigation arrows -->
+    {
+      quotes.length > 1 && (
+        <>
+          <button
+            id="prev-quote"
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110 cursor-pointer focus:outline-sky-500 focus:outline-2 focus:outline-offset-2"
+            aria-label="Cita anterior"
+          >
+            <Icon name="chevron-left" />
+          </button>
+
+          <button
+            id="next-quote"
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 rounded-full p-2 shadow-lg transition-all duration-200 hover:scale-110 cursor-pointer focus:outline-sky-500 focus:outline-2 focus:outline-offset-2"
+            aria-label="Siguiente cita"
+          >
+            <Icon name="chevron-right" />
+          </button>
+        </>
+      )
+    }
+  </div>
+</div>
+
+<script define:vars={{ autoplay, interval, quotesLength: quotes.length }}>
+  let currentSlide = 0;
+  let autoplayTimer = null;
+
+  const slider = document.getElementById("quotes-slider");
+  const dots = document.querySelectorAll(".quote-dot");
+  const prevBtn = document.getElementById("prev-quote");
+  const nextBtn = document.getElementById("next-quote");
+
+  function updateSlider() {
+    if (!slider) return;
+
+    const translateX = -currentSlide * 100;
+    slider.style.transform = `translateX(${translateX}%)`;
+
+    // Update dots
+    dots.forEach((dot, index) => {
+      if (index === currentSlide) {
+        dot.classList.remove("bg-gray-400");
+        dot.classList.add("bg-sky-600");
+      } else {
+        dot.classList.remove("bg-sky-600");
+        dot.classList.add("bg-gray-400");
+      }
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % quotesLength;
+    updateSlider();
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + quotesLength) % quotesLength;
+    updateSlider();
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    updateSlider();
+  }
+
+  function startAutoplay() {
+    // Always stop any existing timer first to prevent multiple timers
+    stopAutoplay();
+
+    if (autoplay && quotesLength > 1) {
+      autoplayTimer = setInterval(nextSlide, interval);
+    }
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  // Event listeners
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      stopAutoplay();
+      nextSlide();
+      // Restart autoplay after a delay to give user time to see the new slide
+      setTimeout(startAutoplay, 100);
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      stopAutoplay();
+      prevSlide();
+      // Restart autoplay after a delay to give user time to see the new slide
+      setTimeout(startAutoplay, 100);
+    });
+  }
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      stopAutoplay();
+      goToSlide(index);
+      // Restart autoplay after a delay to give user time to see the new slide
+      setTimeout(startAutoplay, 100);
+    });
+  });
+
+  // Pause autoplay on hover
+  const carousel = document.querySelector(".quotes-carousel");
+  if (carousel) {
+    carousel.addEventListener("mouseenter", stopAutoplay);
+    carousel.addEventListener("mouseleave", () => {
+      // Restart autoplay with a small delay when mouse leaves
+      setTimeout(startAutoplay, 100);
+    });
+  }
+
+  // Keyboard navigation
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      stopAutoplay();
+      prevSlide();
+      setTimeout(startAutoplay, 100);
+    } else if (e.key === "ArrowRight") {
+      stopAutoplay();
+      nextSlide();
+      setTimeout(startAutoplay, 100);
+    }
+  });
+
+  // Initialize
+  updateSlider();
+  startAutoplay();
+</script>

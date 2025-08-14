@@ -9,6 +9,7 @@ import Text from "../components/Text.astro";
 import { getCollection } from "astro:content";
 import Block from "../components/Block.astro";
 import Button from "../components/Button.astro";
+import Quotes from "../components/Quotes.astro";
 
 const features = await getCollection("features");
 ---
@@ -35,10 +36,16 @@ const features = await getCollection("features");
           viajes.
         </Text>
         <div class="flex justify-start gap-4">
-          <a href="" target="_blank">
-            <Icon name="twitter" class="w-12 h-12 fill-[black]" />
+          <a
+            href="https://www.linkedin.com/in/pablogomezromero/"
+            target="_blank"
+          >
+            <Icon name="linkedin" class="w-12 h-12 fill-[black]" />
           </a>
-          <a href="" target="_blank">
+          <a
+            href="https://www.instagram.com/pablo_gomez_romero"
+            target="_blank"
+          >
             <Icon name="instagram" class="w-12 h-12 fill-[#FF0069]" />
           </a>
         </div>
@@ -55,31 +62,53 @@ const features = await getCollection("features");
       />
     </div>
   </Hero>
-  <section class="container mx-auto bg-white">
-    <div class="py-8 px-4 sm:py-16 lg:px-6">
-      <div class="max-w-screen-md mb-8 lg:mb-16">
-        <Title>Puedes <AccentText>contar</AccentText> conmigo para:</Title>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {
-          features.map((feature) => (
-            <Block variant="gray">
-              <div class="flex flex-col gap-6 h-full">
-                <div class="flex gap-3 items-center">
-                  <Icon name={feature.data.icon} class="w-8 h-8 fill-sky-600" />
-                  <SubSubTitle>{feature.data.title}</SubSubTitle>
-                </div>
-                <Text>{feature.data.description}</Text>
-                <div class="mt-auto pt-4">
-                  <a href={`/${feature.id}`}>
-                    <Button variant="primary">Saber más</Button>
-                  </a>
-                </div>
-              </div>
-            </Block>
-          ))
-        }
-      </div>
+  <section class="container mx-auto bg-white py-8">
+    <div class="max-w-screen-md mb-8 lg:mb-16">
+      <Title>Puedes <AccentText>contar</AccentText> conmigo para:</Title>
     </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {
+        features.map((feature) => (
+          <Block variant="gray">
+            <div class="flex flex-col gap-6 h-full">
+              <div class="flex gap-3 items-center">
+                <Icon name={feature.data.icon} class="w-8 h-8 fill-sky-600" />
+                <SubSubTitle>{feature.data.title}</SubSubTitle>
+              </div>
+              <Text>{feature.data.description}</Text>
+              <div class="mt-auto pt-4">
+                <a href={`/${feature.id}`}>
+                  <Button variant="primary">Saber más</Button>
+                </a>
+              </div>
+            </div>
+          </Block>
+        ))
+      }
+    </div>
+  </section>
+  <section class="container mx-auto bg-white py-8">
+    <Title>Lo que opinan de nosotros:</Title>
+    <Quotes
+      quotes={[
+        {
+          description:
+            "Pablo explica muy bien conceptos financieros y económicos complejos de una forma sencilla y siempre con ejemplos prácticos que son muy fáciles de entender. Se nota que domina la materia y se ve que es un profesional con experiencia tanto en lo que a conocimientos se refiere como a la hora de enseñar. Además, se adapta a tu ritmo y a tu nivel inicial de conocimientos. La verdad que es totalmente recomendable.",
+          author:
+            "Samuel Barrio Corral - Técnico Superior en SEPE y Graduado en Admón y Dirección de Empresas",
+        },
+        {
+          description:
+            'Conozco a Pablo desde hace muchísimos años y ahora nos hemos vuelto a cruzar. Ha sido "mi jefe" durante unos meses y ha demostrado lo currante, buena persona y atento que es. ¡Muy agradecida!',
+          author:
+            "Berta Fernández Rourera - Administrativo en UNIR y Graduada en Admón y Dirección de Empresas",
+        },
+        {
+          description:
+            "Pablo es un buen pedagogo en temas de ahorro e inversión, así como conceptos técnicos en materia de economía. Te hace fácil entender conceptos diversos como interés compuesto, horizonte temporal, efecto coste medio, diversificación, etc. Totalmente recomendable.",
+          author: "Alejandro Bernabé Mora - Técnico Superior en SEPE",
+        },
+      ]}
+    />
   </section>
 </Layout>
