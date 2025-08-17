@@ -43,63 +43,73 @@ const metodologia = [
       <SectionTitle text="FINANZAS" variant="default" size="xl" />
 
       <div class="mx-auto space-y-8">
-        <Banner>
+        <Block>
           <div class="max-w-4xl mx-auto text-center flex flex-col gap-6">
-            <Title variant="light">¿Cuáles son MIS SERVICIOS?</Title>
-            <p class="text-lg md:text-xl leading-relaxed text-sky-100">
+            <Title>¿Cuáles son MIS SERVICIOS?</Title>
+            <Text align="center">
               Muchas veces pensamos que no necesitamos ayuda para gestionar
-              nuestro patrimonio, pero igual que acudimos al <AccentText
-                variant="gray">doctor</AccentText
-              > o al <AccentText variant="gray">mecánico</AccentText>, es mejor
-              dejar estos asuntos en manos de un experto. Mi objetivo es
-              ayudarte a tomar las mejores decisiones financieras para tu
-              tranquilidad y futuro.
-            </p>
+              nuestro patrimonio, pero igual que acudimos al
+              <AccentText>doctor</AccentText> o al
+              <AccentText>mecánico</AccentText>, es mejor dejar estos asuntos en
+              manos de un experto. Mi objetivo es ayudarte a tomar las mejores
+              decisiones financieras para tu tranquilidad y futuro.
+            </Text>
+          </div>
+        </Block>
+
+        <Banner class="flex flex-col items-center">
+          <SubSubSubTitle variant="light">
+            ¿Listo para mejorar tu salud financiera?
+          </SubSubSubTitle>
+          <Text align="center">
+            Solicita tu sesión de asesoramiento gratuita y descubre cómo puedo
+            ayudarte a tomar decisiones inteligentes y alcanzar tu independencia
+            financiera.
+          </Text>
+          <Text align="center">
+            Te acompaño en cada etapa, desde el análisis hasta la planificación. <AccentText
+              variant="gray">Respondo personalmente a cada consulta.</AccentText
+            >
+          </Text>
+          <div>
+            <WhatsappLink
+              text="Hola, quiero mejorar mi salud financiera"
+              class="mt-6 w-full flex justify-center"
+            >
+              <Button variant="white" size="lg"
+                >Quiero asesoramiento financiero</Button
+              >
+            </WhatsappLink>
           </div>
         </Banner>
 
-        <BlockContainer
-          backgroundImage="/images/pablo-gomez-asesoria-financiera-1.png"
-          alt="Análisis financiero Pablo Gómez Romero"
-          overlayColor="bg-gray-800/80"
-        >
-          <SubSubTitle variant="light">Profesionalidad Integral</SubSubTitle>
-          <Text>
-            Cada caso es único. Realizo <AccentText variant="gray"
-              >análisis financieros</AccentText
-            > e <AccentText variant="gray">informes personalizados</AccentText> para
-            organizar la estructura económica de cada cliente. Asesoro de forma independiente
-            a particulares y empresas en:
-          </Text>
-          <div class="mt-4 space-y-2">
-            <Bullet text="Seguros" />
-            <Bullet text="Inversiones" />
-            <Bullet text="Planes de ahorro y jubilación" />
-            <Bullet text="Técnicas de ahorro" />
-            <Bullet text="Acortamiento de hipotecas" />
-          </div>
-        </BlockContainer>
-
         <div class="grid md:grid-cols-2 gap-8">
           <BlockContainer
-            backgroundImage="/images/pablo-gomez-asesoria-financiera-2.png"
-            alt="Consultoría independiente Pablo Gómez Romero"
-            overlayColor="bg-sky-800/80"
+            backgroundImage="/images/pablo-gomez-asesoria-financiera-1.png"
+            alt="Análisis financiero Pablo Gómez Romero"
+            overlayColor="bg-gray-600/80"
           >
-            <SubSubTitle variant="light">Consultoría Independiente</SubSubTitle>
+            <SubSubTitle variant="light">Profesionalidad Integral</SubSubTitle>
             <Text>
-              Mi consultoría financiera se basa en conocer la realidad de cada
-              persona o empresa, sus objetivos y necesidades. Ofrezco productos
-              adaptados, eligiendo lo mejor entre las mejores compañías, <AccentText
-                variant="gray">sin productos propios</AccentText
-              > y siempre pensando en tu beneficio.
+              Cada caso es único. Realizo <AccentText variant="gray"
+                >análisis financieros</AccentText
+              > e <AccentText variant="gray">informes personalizados</AccentText
+              > para organizar la estructura económica de cada cliente. Asesoro de
+              forma independiente a particulares y empresas en:
             </Text>
+            <div class="mt-4 space-y-2">
+              <Bullet text="Seguros" />
+              <Bullet text="Inversiones" />
+              <Bullet text="Planes de ahorro y jubilación" />
+              <Bullet text="Técnicas de ahorro" />
+              <Bullet text="Acortamiento de hipotecas" />
+            </div>
           </BlockContainer>
 
           <BlockContainer
-            backgroundImage="/images/pablo-gomez-asesoria-financiera-3.png"
+            backgroundImage="/images/pablo-gomez-asesoria-financiera-2.png"
             alt="Servicio cercano Pablo Gómez Romero"
-            overlayColor="bg-sky-800/80"
+            overlayColor="bg-gray-600/80"
           >
             <SubSubTitle variant="light">Servicio cercano</SubSubTitle>
             <Text>
@@ -123,34 +133,6 @@ const metodologia = [
           size="lg"
         />
         <ProgressBlocks steps={metodologia} />
-
-        <div
-          class="bg-sky-50 border border-sky-200 rounded-xl shadow-lg p-8 flex flex-col items-center mt-12"
-        >
-          <SubSubSubTitle variant="dark">
-            ¿Listo para mejorar tu salud financiera?
-          </SubSubSubTitle>
-          <Text align="center">
-            Solicita tu sesión de asesoramiento gratuita y descubre cómo puedo
-            ayudarte a tomar decisiones inteligentes y alcanzar tu independencia
-            financiera.
-          </Text>
-          <Text align="center">
-            Te acompaño en cada etapa, desde el análisis hasta la planificación. <AccentText
-              variant="blue">Respondo personalmente a cada consulta.</AccentText
-            >
-          </Text>
-          <div>
-            <WhatsappLink
-              text="Hola, quiero mejorar mi salud financiera"
-              class="mt-6 w-full flex justify-center"
-            >
-              <Button variant="white" size="lg"
-                >Quiero asesoramiento financiero</Button
-              >
-            </WhatsappLink>
-          </div>
-        </div>
       </div>
     </div>
   </main>

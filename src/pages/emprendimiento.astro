@@ -47,29 +47,43 @@ const metodologia = [
       <SectionTitle text="EMPRENDIMIENTO" variant="default" size="xl" />
 
       <div class="mx-auto space-y-8">
-        <Banner>
+        <Block>
           <div class="max-w-4xl mx-auto text-center flex flex-col gap-6">
-            <Title variant="light"
-              >Emprendimiento que transforma tu negocio</Title
-            >
-            <p class="text-lg md:text-xl leading-relaxed text-sky-100">
+            <Title>Emprendimiento que transforma tu negocio</Title>
+            <Text align="center">
               ¿Quieres impulsar tu PYME o proyecto emprendedor? Como fundador de
-              <AccentText variant="gray">DMRural</AccentText>, conozco de
+              <AccentText variant="blue">DMRural</AccentText>, conozco de
               primera mano los retos y oportunidades que supone emprender y
               gestionar una pequeña empresa. Mi objetivo es acompañarte en el
               proceso de creación, consolidación y crecimiento de tu negocio,
               aportando experiencia, visión estratégica y soluciones prácticas
               adaptadas a tu realidad.
-            </p>
-            <div class="border-t border-sky-300 pt-6">
-              <p class="text-sky-100 text-lg font-medium mb-4">
-                ¿Crees que emprender es un camino solitario?
-              </p>
-              <p class="text-white text-xl font-semibold">
-                Cuenta conmigo para que tu aventura empresarial sea más
-                acompañada y exitosa…
-              </p>
-            </div>
+            </Text>
+          </div>
+        </Block>
+
+        <Banner class="flex flex-col items-center">
+          <SubSubSubTitle variant="light">
+            ¿Listo para llevar tu emprendimiento al siguiente nivel?
+          </SubSubSubTitle>
+          <Text align="center">
+            Solicita tu sesión de asesoramiento gratuita y descubre cómo puedo
+            ayudarte a crecer y consolidar tu proyecto.
+          </Text>
+          <Text align="center">
+            Te acompaño en cada etapa, desde la idea hasta el crecimiento. <AccentText
+              variant="gray">Respondo personalmente a cada consulta.</AccentText
+            >
+          </Text>
+          <div>
+            <WhatsappLink
+              text="Hola, quiero impulsar mi proyecto emprendedor"
+              class="mt-6 w-full flex justify-center"
+            >
+              <Button variant="white" size="lg"
+                >Quiero impulsar mi proyecto</Button
+              >
+            </WhatsappLink>
           </div>
         </Banner>
 
@@ -106,33 +120,6 @@ const metodologia = [
           size="lg"
         />
         <ProgressBlocks steps={metodologia} />
-
-        <div
-          class="bg-sky-50 border border-sky-200 rounded-xl shadow-lg p-8 flex flex-col items-center mt-12"
-        >
-          <SubSubSubTitle variant="dark">
-            ¿Listo para llevar tu emprendimiento al siguiente nivel?
-          </SubSubSubTitle>
-          <Text align="center">
-            Solicita tu sesión de asesoramiento gratuita y descubre cómo puedo
-            ayudarte a crecer y consolidar tu proyecto.
-          </Text>
-          <Text align="center">
-            Te acompaño en cada etapa, desde la idea hasta el crecimiento. <AccentText
-              variant="blue">Respondo personalmente a cada consulta.</AccentText
-            >
-          </Text>
-          <div>
-            <WhatsappLink
-              text="Hola, quiero impulsar mi proyecto emprendedor"
-              class="mt-6 w-full flex justify-center"
-            >
-              <Button variant="white" size="lg"
-                >Quiero impulsar mi proyecto</Button
-              >
-            </WhatsappLink>
-          </div>
-        </div>
       </div>
     </div>
   </main>

@@ -24,24 +24,34 @@ import WhatsappLink from "../components/WhatsappLink.astro";
 
       <div class="mx-auto space-y-8">
         <!-- Sección destacada de introducción -->
-        <Banner>
+        <Block>
           <div class="max-w-4xl mx-auto text-center flex flex-col gap-6">
-            <Title variant="light">Formación que marca la diferencia</Title>
-            <p class="text-lg md:text-xl leading-relaxed text-sky-100">
+            <Title>Formación que marca la diferencia</Title>
+            <Text align="center">
               Este servicio consiste en diversas
-              <AccentText variant="gray">FORMACIONES y CONFERENCIAS</AccentText>
+              <AccentText>FORMACIONES y CONFERENCIAS</AccentText>
               realizadas en un tono y ambiente distendido, cercano, cordial y sin
               tecnicismos. Los asistentes deben entender perfectamente los contenidos
               y usarlos luego en su vida diaria.
-            </p>
-            <div class="border-t border-sky-300 pt-6">
-              <p class="text-sky-100 text-lg font-medium mb-4">
-                ¿Piensas que está todo inventado en el mundo de la Formación?
-              </p>
-              <p class="text-white text-xl font-semibold">
-                Cuenta conmigo para que sean más dinámicas y especiales…
-              </p>
-            </div>
+            </Text>
+          </div>
+        </Block>
+
+        <Banner variant="blue">
+          <div class="flex flex-col items-center">
+            <SubSubSubTitle variant="light">
+              ¿Interesado en mis cursos?
+            </SubSubSubTitle>
+            <Text align="center">
+              Contacta conmigo para más información sobre mis programas de
+              formación
+            </Text>
+            <WhatsappLink
+              text="Hola, estoy interesado en información sobre los cursos de formación personalizados"
+              class="mt-6"
+            >
+              <Button variant="white">Quiero un curso personalizado</Button>
+            </WhatsappLink>
           </div>
         </Banner>
 
@@ -109,23 +119,6 @@ import WhatsappLink from "../components/WhatsappLink.astro";
                   de los seres humanos con referencia a la economía.
                 </Text>
               </div>
-              <Banner variant="blue">
-                <div class="flex flex-col items-center">
-                  <SubSubSubTitle variant="light">
-                    ¿Interesado en mis cursos?
-                  </SubSubSubTitle>
-                  <Text align="center">
-                    Contacta conmigo para más información sobre mis programas de
-                    formación
-                  </Text>
-                  <WhatsappLink
-                    text="Hola, estoy interesado en información sobre los cursos de formación presenciales"
-                    class="mt-6"
-                  >
-                    <Button variant="white">Quiero un curso presencial</Button>
-                  </WhatsappLink>
-                </div>
-              </Banner>
             </div>
           </Block>
 
@@ -155,22 +148,6 @@ import WhatsappLink from "../components/WhatsappLink.astro";
                 a que el conocimiento se aplique de manera práctica y
                 actualizada.
               </Text>
-              <Banner variant="contrast">
-                <div class="flex flex-col items-center">
-                  <SubSubSubTitle variant="light">
-                    ¿Quieres probar un curso online?
-                  </SubSubSubTitle>
-                  <Text align="center">
-                    Contacta conmigo para planificar un curso online
-                  </Text>
-                  <WhatsappLink
-                    text="Hola, estoy interesado en información sobre los cursos de formación online"
-                    class="mt-6"
-                  >
-                    <Button variant="white">Quiero un curso online</Button>
-                  </WhatsappLink>
-                </div>
-              </Banner>
             </div>
           </Block>
         </div>
