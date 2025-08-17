@@ -1,0 +1,47 @@
+---
+// Props para personalización
+const {
+  backgroundImage = "/public/images/pablo-gomez-asesoria-financiera-1.png", // Imagen por defecto
+  overlayColor = "bg-black/50", // Overlay para contraste
+  className = "", // Clases extra opcionales
+  alt = "Imagen de fondo decorativa", // Accesibilidad
+} = Astro.props;
+---
+
+<div
+  class={`relative w-full overflow-hidden rounded-xl shadow-lg ${className}`}
+  style={`background-image: url('${backgroundImage}'); background-size: cover; background-position: center;`}
+  aria-label={alt}
+>
+  <!-- Overlay para mejorar contraste y legibilidad -->
+  <div
+    class={`absolute inset-0 ${overlayColor} pointer-events-none transition-all duration-300`}
+  >
+  </div>
+
+  <!-- Contenido dinámico -->
+  <div
+    class="relative z-10 flex flex-col px-4 py-8 sm:px-8 md:py-12 lg:px-16 lg:py-20 text-white"
+  >
+    <slot />
+  </div>
+</div>
+
+<style>
+  /* Fallback para navegadores sin Tailwind (opcional) */
+  @media (max-width: 640px) {
+    div[aria-label] {
+      min-height: 220px;
+    }
+  }
+  @media (min-width: 641px) and (max-width: 1023px) {
+    div[aria-label] {
+      min-height: 320px;
+    }
+  }
+  @media (min-width: 1024px) {
+    div[aria-label] {
+      min-height: 420px;
+    }
+  }
+</style>

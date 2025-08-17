@@ -1,18 +1,64 @@
 ---
 import { SITE_TITLE } from "../consts";
 import Icon from "./Icon.astro";
+import WhatsappLink from "./WhatsappLink.astro";
 
 const today = new Date();
 ---
 
-<footer class="flex items-center justify-center gap-6 flex-col my-12">
-  <div>Pablo Gómez Romero. All rights reserved.</div>
-  <div class="flex justify-center gap-4">
-    <a href="https://www.linkedin.com/in/pablogomezromero/" target="_blank">
-      <Icon name="linkedin" class="w-6 h-6 fill-[black]" />
-    </a>
-    <a href="https://www.instagram.com/pablo_gomez_romero" target="_blank">
-      <Icon name="instagram" class="w-6 h-6 fill-[#FF0069]" />
-    </a>
+<footer
+  class="w-full bg-gray-50 py-10 px-4 flex flex-col items-center gap-8 border-t border-gray-200"
+>
+  <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Sección de contacto -->
+    <div class="flex flex-col gap-2 items-center md:items-start">
+      <h3 class="font-bold text-lg mb-2">Contacto</h3>
+      <div class="flex items-center gap-2">
+        <Icon name="phone" class="w-5 h-5" />
+        <span>659 291 511</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <Icon name="quote" class="w-5 h-5" />
+        <a href="mailto:hola@pablogomezromero.com" class="underline"
+          >hola@pablogomezromero.com</a
+        >
+      </div>
+    </div>
+    <!-- Sección de navegación -->
+    <div class="flex flex-col gap-2 items-center">
+      <h3 class="font-bold text-lg mb-2">Secciones</h3>
+      <a href="/emprendimiento" class="hover:underline">Emprendimiento</a>
+      <a href="/finanzas" class="hover:underline">Finanzas</a>
+      <a href="/formacion" class="hover:underline">Formación</a>
+    </div>
+    <!-- Sección de redes sociales -->
+    <div class="flex flex-col gap-2 items-center md:items-end">
+      <h3 class="font-bold text-lg mb-2">Sígueme</h3>
+      <div class="flex gap-4">
+        <a
+          href="https://www.linkedin.com/in/pablogomezromero/"
+          target="_blank"
+          aria-label="LinkedIn"
+        >
+          <Icon
+            name="linkedin"
+            class="w-7 h-7 fill-[black] hover:scale-110 transition"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/pablo_gomez_romero"
+          target="_blank"
+          aria-label="Instagram"
+        >
+          <Icon
+            name="instagram"
+            class="w-7 h-7 fill-[#FF0069] hover:scale-110 transition"
+          />
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="text-center text-sm text-gray-500 mt-8">
+    &copy; {today.getFullYear()} Pablo Gómez Romero. Todos los derechos reservados.
   </div>
 </footer>

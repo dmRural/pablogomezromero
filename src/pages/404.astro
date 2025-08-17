@@ -1,0 +1,37 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SITE_TITLE } from "../consts";
+import Title from "../components/Title.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import Text from "../components/Text.astro";
+import Button from "../components/Button.astro";
+import Banner from "../components/Banner.astro";
+---
+
+<Layout
+  title={`¡Ups! Página no encontrada | ${SITE_TITLE}`}
+  description="Página 404 divertida y con el mismo estilo que el resto de la web"
+>
+  <main>
+    <div class="container mx-auto px-5 py-10">
+      <SectionTitle text="404" variant="default" size="xl" />
+      <Banner>
+        <div class="max-w-3xl mx-auto text-center flex flex-col gap-6">
+          <Title variant="light">¡Vaya! Aquí no hay nada... todavía</Title>
+          <p class="text-lg md:text-xl leading-relaxed text-sky-100">
+            Como buen emprendedor, a veces los proyectos no salen como uno
+            espera...<br />
+            Esta página es como ese negocio que nunca arrancó, pero al menos nos
+            reímos juntos.<br />
+            <span class="font-bold text-sky-200"
+              >¿Te animas a volver a intentarlo?</span
+            >
+          </p>
+          <a href="/" class="flex justify-center mt-6">
+            <Button variant="white" size="lg">Volver a la Home</Button>
+          </a>
+        </div>
+      </Banner>
+    </div>
+  </main>
+</Layout>

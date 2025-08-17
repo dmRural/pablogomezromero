@@ -1,20 +1,138 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { SITE_TITLE } from "../consts";
+import Title from "../components/Title.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import SubSubTitle from "../components/SubSubTitle.astro";
+import SubSubSubTitle from "../components/SubSubSubTitle.astro";
+import Text from "../components/Text.astro";
+import Button from "../components/Button.astro";
+import Banner from "../components/Banner.astro";
+import Block from "../components/Block.astro";
+import AccentText from "../components/AccentText.astro";
+import Bullet from "../components/Bullet.astro";
+import WhatsappLink from "../components/WhatsappLink.astro";
+import ProgressBlocks from "../components/ProgressBlocks.astro";
+
+const metodologia = [
+  {
+    titulo: "Análisis personalizado de tu proyecto y entorno",
+    texto:
+      "Estudio detallado de tu idea, sector y contexto para identificar oportunidades y retos específicos.",
+  },
+  {
+    titulo: "Definición de objetivos claros y alcanzables",
+    texto:
+      "Te ayudo a establecer metas realistas y medibles para orientar el crecimiento de tu negocio.",
+  },
+  {
+    titulo: "Elaboración de un plan de acción adaptado",
+    texto:
+      "Diseño contigo una hoja de ruta personalizada que se ajuste a tus necesidades y recursos.",
+  },
+  {
+    titulo: "Seguimiento y acompañamiento continuo",
+    texto:
+      "Te acompaño en cada etapa, revisando avances y ajustando estrategias para asegurar el éxito.",
+  },
+];
 ---
 
 <Layout
   title={`Emprendimiento | ${SITE_TITLE}`}
-  description="Página de emprendimiento de Pablo Gómez Romero"
+  description="Impulsa tu PYME o proyecto emprendedor con asesoramiento, formación y acompañamiento profesional de Pablo Gómez Romero"
 >
   <main>
     <div class="container mx-auto px-5 py-10">
-      <h1 class="text-4xl font-bold text-center mb-8">Emprendimiento</h1>
+      <SectionTitle text="EMPRENDIMIENTO" variant="default" size="xl" />
 
-      <div class="max-w-3xl mx-auto">
-        <p class="text-center text-gray-600 text-lg">
-          Contenido próximamente...
-        </p>
+      <div class="mx-auto space-y-8">
+        <Banner>
+          <div class="max-w-4xl mx-auto text-center flex flex-col gap-6">
+            <Title variant="light"
+              >Emprendimiento que transforma tu negocio</Title
+            >
+            <p class="text-lg md:text-xl leading-relaxed text-sky-100">
+              ¿Quieres impulsar tu PYME o proyecto emprendedor? Como fundador de
+              <AccentText variant="gray">DMRural</AccentText>, conozco de
+              primera mano los retos y oportunidades que supone emprender y
+              gestionar una pequeña empresa. Mi objetivo es acompañarte en el
+              proceso de creación, consolidación y crecimiento de tu negocio,
+              aportando experiencia, visión estratégica y soluciones prácticas
+              adaptadas a tu realidad.
+            </p>
+            <div class="border-t border-sky-300 pt-6">
+              <p class="text-sky-100 text-lg font-medium mb-4">
+                ¿Crees que emprender es un camino solitario?
+              </p>
+              <p class="text-white text-xl font-semibold">
+                Cuenta conmigo para que tu aventura empresarial sea más
+                acompañada y exitosa…
+              </p>
+            </div>
+          </div>
+        </Banner>
+
+        <Banner variant="light">
+          <h3 class="text-xl font-semibold text-gray-800 mb-4">
+            Servicios para emprendedores y pequeñas empresas:
+          </h3>
+          <div class="grid md:grid-cols-2 gap-4 text-gray-700">
+            <Bullet
+              text="Asesoramiento en la puesta en marcha de proyectos empresariales"
+            />
+            <Bullet text="Diseño de planes de negocio y viabilidad" />
+            <Bullet text="Estrategias de financiación y gestión de recursos" />
+            <Bullet text="Formación en gestión empresarial y liderazgo" />
+            <Bullet
+              text="Apoyo en la digitalización y modernización de procesos"
+            />
+            <Bullet
+              text="Networking y alianzas con otros emprendedores y entidades"
+            />
+          </div>
+          <p class="mt-4 text-gray-600 font-medium">
+            Acompaño a <AccentText>PYMES</AccentText>, <AccentText
+              >emprendedores</AccentText
+            >
+            y <AccentText>proyectos innovadores</AccentText> en su desarrollo y consolidación.
+          </p>
+        </Banner>
+
+        <SectionTitle
+          text="Impulsa tu proyecto"
+          description="Conoce el proceso que te ayudará a consolidar tu empresa y alcanzar tus objetivos como emprendedor."
+          variant="default"
+          size="lg"
+        />
+        <ProgressBlocks steps={metodologia} />
+
+        <div
+          class="bg-sky-50 border border-sky-200 rounded-xl shadow-lg p-8 flex flex-col items-center mt-12"
+        >
+          <SubSubSubTitle variant="dark">
+            ¿Listo para llevar tu emprendimiento al siguiente nivel?
+          </SubSubSubTitle>
+          <Text align="center">
+            Solicita tu sesión de asesoramiento gratuita y descubre cómo puedo
+            ayudarte a crecer y consolidar tu proyecto.
+          </Text>
+          <Text align="center">
+            Te acompaño en cada etapa, desde la idea hasta el crecimiento. <AccentText
+              variant="blue">Respondo personalmente a cada consulta.</AccentText
+            >
+          </Text>
+          <div>
+            <WhatsappLink
+              text="Hola, quiero impulsar mi proyecto emprendedor"
+              class="mt-6 w-full flex justify-center"
+            >
+              <Button variant="white" size="lg"
+                >Quiero impulsar mi proyecto</Button
+              >
+            </WhatsappLink>
+          </div>
+        </div>
       </div>
     </div>
   </main>
