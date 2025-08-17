@@ -13,6 +13,7 @@ import AccentText from "../components/AccentText.astro";
 import Bullet from "../components/Bullet.astro";
 import WhatsappLink from "../components/WhatsappLink.astro";
 import ProgressBlocks from "../components/ProgressBlocks.astro";
+import BlockContainer from "../components/BlockContainer.astro";
 
 const metodologia = [
   {
@@ -57,50 +58,62 @@ const metodologia = [
           </div>
         </Banner>
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <Block variant="gray">
-            <SubSubTitle>Profesionalidad Integral</SubSubTitle>
-            <Text>
-              Cada caso es único. Realizo <AccentText
-                >análisis financieros</AccentText
-              > e <AccentText>informes personalizados</AccentText> para organizar
-              la estructura económica de cada cliente. Asesoro de forma independiente
-              a particulares y empresas en:
-            </Text>
-            <div class="mt-4 space-y-2">
-              <Bullet text="Seguros" />
-              <Bullet text="Inversiones" />
-              <Bullet text="Planes de ahorro y jubilación" />
-              <Bullet text="Técnicas de ahorro" />
-              <Bullet text="Acortamiento de hipotecas" />
-            </div>
-          </Block>
+        <BlockContainer
+          backgroundImage="/images/pablo-gomez-asesoria-financiera-1.png"
+          alt="Análisis financiero Pablo Gómez Romero"
+          overlayColor="bg-gray-800/80"
+        >
+          <SubSubTitle variant="light">Profesionalidad Integral</SubSubTitle>
+          <Text>
+            Cada caso es único. Realizo <AccentText variant="gray"
+              >análisis financieros</AccentText
+            > e <AccentText variant="gray">informes personalizados</AccentText> para
+            organizar la estructura económica de cada cliente. Asesoro de forma independiente
+            a particulares y empresas en:
+          </Text>
+          <div class="mt-4 space-y-2">
+            <Bullet text="Seguros" />
+            <Bullet text="Inversiones" />
+            <Bullet text="Planes de ahorro y jubilación" />
+            <Bullet text="Técnicas de ahorro" />
+            <Bullet text="Acortamiento de hipotecas" />
+          </div>
+        </BlockContainer>
 
-          <Block variant="gray">
-            <SubSubTitle>Consultoría Independiente</SubSubTitle>
+        <div class="grid md:grid-cols-2 gap-8">
+          <BlockContainer
+            backgroundImage="/images/pablo-gomez-asesoria-financiera-2.png"
+            alt="Consultoría independiente Pablo Gómez Romero"
+            overlayColor="bg-sky-800/80"
+          >
+            <SubSubTitle variant="light">Consultoría Independiente</SubSubTitle>
             <Text>
               Mi consultoría financiera se basa en conocer la realidad de cada
               persona o empresa, sus objetivos y necesidades. Ofrezco productos
               adaptados, eligiendo lo mejor entre las mejores compañías, <AccentText
-                >sin productos propios</AccentText
+                variant="gray">sin productos propios</AccentText
               > y siempre pensando en tu beneficio.
             </Text>
-          </Block>
+          </BlockContainer>
 
-          <Block variant="gray">
-            <SubSubTitle>Servicio cercano y sin compromiso</SubSubTitle>
+          <BlockContainer
+            backgroundImage="/images/pablo-gomez-asesoria-financiera-3.png"
+            alt="Servicio cercano Pablo Gómez Romero"
+            overlayColor="bg-sky-800/80"
+          >
+            <SubSubTitle variant="light">Servicio cercano</SubSubTitle>
             <Text>
               Hablo contigo sobre tus deseos y necesidades, diseño soluciones
               personalizadas para proteger tus ingresos e inversiones, y te
               aconsejo para diversificar correctamente tu dinero, equilibrando <AccentText
-                >seguridad</AccentText
-              >, <AccentText>rentabilidad</AccentText>, <AccentText
-                >fiscalidad</AccentText
-              >, <AccentText>inflación</AccentText> y <AccentText
-                >liquidez</AccentText
+                variant="gray">seguridad</AccentText
+              >, <AccentText variant="gray">rentabilidad</AccentText>, <AccentText
+                variant="gray">fiscalidad</AccentText
+              >, <AccentText variant="gray">inflación</AccentText> y <AccentText
+                variant="gray">liquidez</AccentText
               >.
             </Text>
-          </Block>
+          </BlockContainer>
         </div>
 
         <SectionTitle
