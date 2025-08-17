@@ -10,6 +10,7 @@ import { getCollection } from "astro:content";
 import Block from "../components/Block.astro";
 import Button from "../components/Button.astro";
 import Quotes from "../components/Quotes.astro";
+import SectionTitle from "../components/SectionTitle.astro";
 
 const features = await getCollection("features");
 ---
@@ -63,9 +64,63 @@ const features = await getCollection("features");
     </div>
   </Hero>
   <section class="container mx-auto bg-white py-8">
-    <div class="max-w-screen-md mx-4 mb-8 lg:mb-16">
-      <Title>Puedes <AccentText>contar</AccentText> conmigo para:</Title>
+    <SectionTitle text="Ya confían en mi" variant="default" size="lg" />
+    <div
+      class="grid grid-cols-2 md:grid-cols-3 gap-6 items-center justify-items-center py-4"
+    >
+      <a href="https://www.ader.es/" target="_blank">
+        <img
+          src="/images/pablo-gomez-colaborador-ader.jpg"
+          alt="Colaborador ADER"
+          class="h-24 md:h-32 w-auto object-contain"
+        />
+      </a>
+      <a
+        href="https://www.larioja.org/innovacion/fr/clusters-centros-tecnologicos/red-aeis/clusters-riojanos/asociacion-empresas-riojanas-tic-aertic"
+        target="_blank"
+      >
+        <img
+          src="/images/pablo-gomez-colaborador-aertic.jpg"
+          alt="Colaborador AERTIR"
+          class="h-24 md:h-32 w-auto object-contain"
+        />
+      </a>
+      <a href="https://camaracomerciorioja.com/inicio/" target="_blank">
+        <img
+          src="/images/pablo-gomez-colaborador-camara.jpg"
+          alt="Colaborador Cámara"
+          class="h-24 md:h-32 w-auto object-contain"
+        />
+      </a>
+      <a href="https://colegiolarioja.economistas.es/" target="_blank">
+        <img
+          src="/images/pablo-gomez-colaborador-economistas-la-rioja.jpg"
+          alt="Colaborador Economistas La Rioja"
+          class="h-24 md:h-32 w-auto object-contain"
+        />
+      </a>
+      <a href="https://emprenderioja.es/" target="_blank">
+        <img
+          src="/images/pablo-gomez-colaborador-emprende-rioja.jpg"
+          alt="Colaborador Emprende Rioja"
+          class="h-24 md:h-32 w-auto object-contain"
+        />
+      </a>
+      <a href="https://www.fer.es/" target="_blank">
+        <img
+          src="/images/pablo-gomez-colaborador-fer.jpg"
+          alt="Colaborador FER"
+          class="h-24 md:h-32 w-auto object-contain"
+        />
+      </a>
     </div>
+  </section>
+  <section class="container mx-auto bg-white py-8">
+    <SectionTitle
+      text="Puedes contar conmigo para"
+      variant="default"
+      size="lg"
+    />
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {
         features.map((feature) => (
@@ -88,9 +143,7 @@ const features = await getCollection("features");
     </div>
   </section>
   <section class="container mx-auto bg-white py-8">
-    <div class="mx-4">
-      <Title>Lo que dicen de mi:</Title>
-    </div>
+    <SectionTitle text="Lo que dicen de mi" variant="default" size="lg" />
     <Quotes
       quotes={[
         {
