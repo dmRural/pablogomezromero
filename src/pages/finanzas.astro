@@ -1,20 +1,130 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { SITE_TITLE } from "../consts";
+import Title from "../components/Title.astro";
+import SectionTitle from "../components/SectionTitle.astro";
+import SubSubTitle from "../components/SubSubTitle.astro";
+import SubSubSubTitle from "../components/SubSubSubTitle.astro";
+import Text from "../components/Text.astro";
+import Button from "../components/Button.astro";
+import Banner from "../components/Banner.astro";
+import Block from "../components/Block.astro";
+import AccentText from "../components/AccentText.astro";
+import Bullet from "../components/Bullet.astro";
+import WhatsappLink from "../components/WhatsappLink.astro";
+import ProgressBlocks from "../components/ProgressBlocks.astro";
+
+const metodologia = [
+  {
+    titulo: "Análisis financiero completo",
+    texto:
+      "Realizo un estudio detallado de tu situación económica y patrimonial para identificar oportunidades y riesgos.",
+  },
+  {
+    titulo: "Concienciación del largo plazo",
+    texto:
+      "Te ayudo a entender la importancia de planificar a largo plazo, para que tus decisiones financieras sean sostenibles y seguras.",
+  },
+  {
+    titulo: "Seguimiento periódico",
+    texto:
+      "Mantengo un contacto regular contigo para revisar y ajustar tu estrategia financiera según cambien tus circunstancias y el entorno.",
+  },
+];
 ---
 
 <Layout
   title={`Finanzas | ${SITE_TITLE}`}
-  description="Página de finanzas de Pablo Gómez Romero"
+  description="Servicios de asesoría financiera, consultoría y gestión patrimonial en primera persona por Pablo Gómez Romero"
 >
   <main>
     <div class="container mx-auto px-5 py-10">
-      <h1 class="text-4xl font-bold text-center mb-8">Finanzas</h1>
+      <SectionTitle text="FINANZAS" variant="default" size="xl" />
 
-      <div class="max-w-3xl mx-auto">
-        <p class="text-center text-gray-600 text-lg">
-          Contenido próximamente...
-        </p>
+      <div class="mx-auto space-y-8">
+        <Banner>
+          <div class="max-w-4xl mx-auto text-center flex flex-col gap-6">
+            <Title variant="light">¿Cuáles son MIS SERVICIOS?</Title>
+            <p class="text-lg md:text-xl leading-relaxed text-sky-100">
+              Muchas veces pensamos que no necesitamos ayuda para gestionar
+              nuestro patrimonio, pero igual que acudimos al <AccentText
+                variant="gray">doctor</AccentText
+              > o al <AccentText variant="gray">mecánico</AccentText>, es mejor
+              dejar estos asuntos en manos de un experto. Mi objetivo es
+              ayudarte a tomar las mejores decisiones financieras para tu
+              tranquilidad y futuro.
+            </p>
+          </div>
+        </Banner>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <Block variant="gray">
+            <SubSubTitle>Profesionalidad Integral</SubSubTitle>
+            <Text>
+              Cada caso es único. Realizo <AccentText
+                >análisis financieros</AccentText
+              > e <AccentText>informes personalizados</AccentText> para organizar
+              la estructura económica de cada cliente. Asesoro de forma independiente
+              a particulares y empresas en:
+            </Text>
+            <div class="mt-4 space-y-2">
+              <Bullet text="Seguros" />
+              <Bullet text="Inversiones" />
+              <Bullet text="Planes de ahorro y jubilación" />
+              <Bullet text="Técnicas de ahorro" />
+              <Bullet text="Acortamiento de hipotecas" />
+            </div>
+          </Block>
+
+          <Block variant="gray">
+            <SubSubTitle>Consultoría Independiente</SubSubTitle>
+            <Text>
+              Mi consultoría financiera se basa en conocer la realidad de cada
+              persona o empresa, sus objetivos y necesidades. Ofrezco productos
+              adaptados, eligiendo lo mejor entre las mejores compañías, <AccentText
+                >sin productos propios</AccentText
+              > y siempre pensando en tu beneficio.
+            </Text>
+          </Block>
+
+          <Block variant="gray">
+            <SubSubTitle>Servicio cercano y sin compromiso</SubSubTitle>
+            <Text>
+              Hablo contigo sobre tus deseos y necesidades, diseño soluciones
+              personalizadas para proteger tus ingresos e inversiones, y te
+              aconsejo para diversificar correctamente tu dinero, equilibrando <AccentText
+                >seguridad</AccentText
+              >, <AccentText>rentabilidad</AccentText>, <AccentText
+                >fiscalidad</AccentText
+              >, <AccentText>inflación</AccentText> y <AccentText
+                >liquidez</AccentText
+              >.
+            </Text>
+          </Block>
+        </div>
+
+        <SectionTitle
+          text="¿Cuál es mi metodología?"
+          variant="default"
+          size="lg"
+        />
+        <ProgressBlocks steps={metodologia} />
+
+        <div class="flex flex-col items-center mt-12">
+          <SubSubSubTitle variant="light"
+            >¿Quieres que te ayude con tus finanzas?</SubSubSubTitle
+          >
+          <Text align="center">
+            Contacta conmigo para recibir asesoramiento personalizado y empezar
+            a mejorar tu situación financiera.
+          </Text>
+          <WhatsappLink
+            text="Hola, estoy interesado en información sobre los servicios financieros"
+            class="mt-6"
+          >
+            <Button variant="white">Contáctame</Button>
+          </WhatsappLink>
+        </div>
       </div>
     </div>
   </main>

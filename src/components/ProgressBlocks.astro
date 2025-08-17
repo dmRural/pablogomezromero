@@ -1,0 +1,47 @@
+---
+// Props: steps: Array<{ titulo: string; texto: string }>
+import Block from "./Block.astro";
+import SubSubTitle from "./SubSubTitle.astro";
+import Text from "./Text.astro";
+const { steps } = Astro.props;
+---
+
+<div class="progress-blocks">
+  {
+    steps.map((step: { titulo: string; texto: string }, idx: number) => (
+      <Block>
+        <div class="progress-step-header">
+          <span class="progress-step-number">{idx + 1}</span>
+          <SubSubTitle>{step.titulo}</SubSubTitle>
+        </div>
+        <Text>{step.texto}</Text>
+      </Block>
+    ))
+  }
+</div>
+
+<style>
+  .progress-blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .progress-step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  .progress-step-number {
+    background: var(--accent, #e0e0e0);
+    color: var(--text, #222);
+    font-weight: bold;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+  }
+</style>
