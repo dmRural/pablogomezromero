@@ -63,7 +63,7 @@ const features = await getCollection("features");
     </div>
   </Hero>
   <section class="container mx-auto bg-white py-8">
-    <div class="max-w-screen-md mb-8 lg:mb-16">
+    <div class="max-w-screen-md mx-4 mb-8 lg:mb-16">
       <Title>Puedes <AccentText>contar</AccentText> conmigo para:</Title>
     </div>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -88,7 +88,9 @@ const features = await getCollection("features");
     </div>
   </section>
   <section class="container mx-auto bg-white py-8">
-    <Title>Lo que dicen de mi:</Title>
+    <div class="mx-4">
+      <Title>Lo que dicen de mi:</Title>
+    </div>
     <Quotes
       quotes={[
         {
