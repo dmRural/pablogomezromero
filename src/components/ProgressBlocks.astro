@@ -11,7 +11,7 @@ const { steps } = Astro.props;
     steps.map((step: { titulo: string; texto: string }, idx: number) => (
       <Block>
         <div class="flex items-center gap-4 mb-2">
-          <span class="bg-sky-800 text-white text-text font-bold rounded-full w-10 h-10 flex items-center justify-center text-xl">
+          <span class="bg-sky-800 text-white text-text font-bold rounded-full min-w-10 w-10 h-10 flex items-center justify-center text-xl">
             {idx + 1}
           </span>
           <SubSubTitle>{step.titulo}</SubSubTitle>

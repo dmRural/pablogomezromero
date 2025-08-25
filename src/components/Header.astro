@@ -72,6 +72,15 @@ import { SITE_TITLE } from "../consts";
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    initMobileMenu();
+  });
+
+  // Re-ejecutar en cada navegación Astro
+  document.addEventListener("astro:after-swap", () => {
+    initMobileMenu();
+  });
+
+  function initMobileMenu() {
     const mobileMenuButton = document.getElementById("mobile-menu-button");
     const mobileMenu = document.getElementById("mobile-menu");
     const menuOpenIcon = document.getElementById("menu-open-icon");
@@ -82,13 +91,11 @@ import { SITE_TITLE } from "../consts";
         const isHidden = mobileMenu.classList.contains("hidden");
 
         if (isHidden) {
-          // Mostrar menú
           mobileMenu.classList.remove("hidden");
           mobileMenu.classList.add("flex");
           menuOpenIcon.style.display = "none";
           menuCloseIcon.style.display = "block";
         } else {
-          // Ocultar menú
           mobileMenu.classList.add("hidden");
           mobileMenu.classList.remove("flex");
           menuOpenIcon.style.display = "block";
@@ -96,5 +103,5 @@ import { SITE_TITLE } from "../consts";
         }
       });
     }
-  });
+  }
 </script>
