@@ -6,25 +6,71 @@ interface Props {
 
 const { type = "WebSite", page = "home" } = Astro.props;
 
-// Datos base de la organización/persona
+// Datos base de la organización/persona - Schema Person mejorado
 const baseData = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Pablo Gómez Romero",
+  givenName: "Pablo",
+  familyName: "Gómez Romero",
   jobTitle: "Asesor Financiero",
   description:
     "Asesor financiero especializado en consultoría para emprendedores, formación empresarial y desarrollo de negocios",
   url: "https://pablogomezromero.com",
+  image: "https://pablogomezromero.com/pablo-gomez-romero.png",
   sameAs: [
     "https://www.linkedin.com/in/pablogomezromero",
     "https://twitter.com/pablogomezromero",
   ],
   address: {
     "@type": "PostalAddress",
+    addressLocality: "Logroño",
+    addressRegion: "La Rioja",
     addressCountry: "ES",
   },
   telephone: "+34659291511",
   email: "contacto@pablogomezromero.com",
+  knowsAbout: [
+    "finanzas para emprendedores",
+    "planificación fiscal",
+    "estrategias de inversión",
+    "asesoría financiera",
+    "gestión patrimonial",
+    "consultoría empresarial",
+    "formación empresarial",
+    "desarrollo de negocios",
+    "PYME",
+    "emprendimiento",
+    "educación financiera",
+  ],
+  hasOccupation: {
+    "@type": "Occupation",
+    name: "Asesor Financiero",
+    occupationalCategory: "Financial Advisory Services",
+    responsibilities: [
+      "Asesoramiento financiero personalizado",
+      "Planificación de inversiones",
+      "Gestión patrimonial",
+      "Consultoría para emprendedores",
+      "Formación empresarial",
+    ],
+  },
+  alumniOf: [
+    {
+      "@type": "EducationalOrganization",
+      name: "Universidad de La Rioja",
+    },
+  ],
+  memberOf: [
+    {
+      "@type": "Organization",
+      name: "ADER - Agencia de Desarrollo Económico de La Rioja",
+    },
+    {
+      "@type": "Organization",
+      name: "FER - Federación de Empresarios de La Rioja",
+    },
+  ],
 };
 
 // Schema específico según la página
@@ -46,21 +92,67 @@ switch (page) {
           target: "https://pablogomezromero.com/search?q={search_term_string}",
           "query-input": "required name=search_term_string",
         },
+        mainEntity: baseData,
       },
       {
         "@context": "https://schema.org",
         "@type": "ProfessionalService",
         name: "Asesoría Financiera Pablo Gómez Romero",
         description:
-          "Servicios de asesoría financiera, consultoría empresarial y formación para emprendedores",
+          "Servicios profesionales de asesoría financiera, consultoría empresarial y formación especializada para emprendedores y PYME",
         provider: baseData,
-        areaServed: "España",
+        areaServed: {
+          "@type": "Country",
+          name: "España",
+        },
         serviceType: [
           "Asesoría Financiera",
           "Consultoría Empresarial",
           "Formación Empresarial",
+          "Gestión Patrimonial",
+          "Planificación Financiera",
         ],
         url: "https://pablogomezromero.com",
+        category: "YMYL - Your Money Your Life",
+        audience: {
+          "@type": "Audience",
+          audienceType: [
+            "Emprendedores",
+            "PYME",
+            "Particulares",
+            "Empresarios",
+          ],
+        },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Servicios Profesionales",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Asesoría Financiera",
+                url: "https://pablogomezromero.com/finanzas",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Consultoría para Emprendedores",
+                url: "https://pablogomezromero.com/emprendimiento",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Formación Empresarial",
+                url: "https://pablogomezromero.com/formacion",
+              },
+            },
+          ],
+        },
       },
       baseData,
     ];
@@ -71,13 +163,74 @@ switch (page) {
       {
         "@context": "https://schema.org",
         "@type": "FinancialService",
-        name: "Asesoría Financiera",
+        name: "Servicios de Asesoría Financiera",
         description:
-          "Servicios especializados de asesoría financiera, consultoría económica y gestión patrimonial personalizada",
+          "Servicios especializados de asesoría financiera, consultoría económica y gestión patrimonial personalizada para particulares y empresas",
         provider: baseData,
-        serviceType: "Financial Planning",
-        areaServed: "España",
+        serviceType: [
+          "Financial Planning",
+          "Investment Advisory",
+          "Wealth Management",
+          "Tax Planning",
+          "Insurance Planning",
+        ],
+        areaServed: {
+          "@type": "Country",
+          name: "España",
+        },
         url: "https://pablogomezromero.com/finanzas",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Servicios Financieros",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Asesoramiento en Seguros",
+                description: "Análisis y selección de seguros personalizados",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Planificación de Inversiones",
+                description: "Estrategias de inversión adaptadas a cada perfil",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Planes de Ahorro y Jubilación",
+                description: "Planificación financiera para el retiro",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Gestión Patrimonial",
+                description:
+                  "Optimización y protección del patrimonio personal",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Técnicas de Ahorro",
+                description: "Estrategias para maximizar el ahorro familiar",
+              },
+            },
+          ],
+        },
+        audience: {
+          "@type": "Audience",
+          audienceType: ["Particulares", "Emprendedores", "PYME", "Familias"],
+        },
+        category: "YMYL - Your Money Your Life",
       },
       baseData,
     ];
@@ -88,13 +241,67 @@ switch (page) {
       {
         "@context": "https://schema.org",
         "@type": "ConsultingService",
-        name: "Consultoría para Emprendedores",
+        name: "Consultoría para Emprendedores y PYME",
         description:
-          "Consultoría especializada para emprendedores y PYMES, asesoramiento personalizado y acompañamiento profesional",
+          "Consultoría especializada para emprendedores y PYMES, asesoramiento personalizado y acompañamiento profesional en desarrollo de negocios",
         provider: baseData,
-        serviceType: "Business Consulting",
-        areaServed: "España",
+        serviceType: [
+          "Business Consulting",
+          "Startup Advisory",
+          "SME Consulting",
+          "Business Development",
+        ],
+        areaServed: {
+          "@type": "Country",
+          name: "España",
+        },
         url: "https://pablogomezromero.com/emprendimiento",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Servicios de Consultoría Empresarial",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Asesoramiento en Puesta en Marcha",
+                description:
+                  "Apoyo integral en el lanzamiento de proyectos empresariales",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Diseño de Planes de Negocio",
+                description:
+                  "Desarrollo de planes de negocio y análisis de viabilidad",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Estrategias de Financiación",
+                description:
+                  "Orientación en financiación y gestión de recursos para emprendedores",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Digitalización de Procesos",
+                description:
+                  "Apoyo en modernización y digitalización empresarial",
+              },
+            },
+          ],
+        },
+        audience: {
+          "@type": "Audience",
+          audienceType: ["Emprendedores", "PYME", "Startups", "Autónomos"],
+        },
       },
       baseData,
     ];
@@ -105,14 +312,68 @@ switch (page) {
       {
         "@context": "https://schema.org",
         "@type": "EducationalService",
-        name: "Formación Empresarial",
+        name: "Formación Empresarial en Finanzas",
         description:
           "Cursos y formaciones especializadas en finanzas, economía y educación financiera para empresarios y emprendedores",
         provider: baseData,
-        serviceType: "Professional Training",
-        areaServed: "España",
+        serviceType: [
+          "Professional Training",
+          "Financial Education",
+          "Business Education",
+          "Corporate Training",
+        ],
+        areaServed: {
+          "@type": "Country",
+          name: "España",
+        },
         url: "https://pablogomezromero.com/formacion",
         courseMode: ["Online", "Presential"],
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Programas Formativos",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Course",
+                name: "Talleres de Educación Financiera Básica",
+                description:
+                  "Formación básica en conceptos financieros y manejo del dinero",
+                courseMode: "Presential",
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Course",
+                name: "Cursos Específicos de Finanzas",
+                description:
+                  "Formación avanzada en temas financieros especializados",
+                courseMode: ["Online", "Presential"],
+              },
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Course",
+                name: "Talleres de Economía",
+                description:
+                  "Formación en principios económicos para la toma de decisiones empresariales",
+                courseMode: "Presential",
+              },
+            },
+          ],
+        },
+        audience: {
+          "@type": "Audience",
+          audienceType: [
+            "Empresarios",
+            "Emprendedores",
+            "Profesionales",
+            "Estudiantes",
+          ],
+        },
+        educationalCredentialAwarded: "Certificado de Participación",
       },
       baseData,
     ];
