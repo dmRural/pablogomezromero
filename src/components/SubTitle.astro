@@ -1,0 +1,25 @@
+---
+interface Props {
+  variant?: "dark" | "light";
+  align?: "left" | "center" | "right";
+}
+
+const { variant = "dark", align = "center" } = Astro.props;
+
+const variants = {
+  dark: "text-gray-800",
+  light: "text-white",
+};
+
+const alignments = {
+  left: "text-left",
+  center: "text-center",
+  right: "text-right",
+};
+---
+
+<h2
+  class={`text-xl md:text-2xl lg:text-3xl font-bold tracking-tighter ${variants[variant]} ${alignments[align]} mb-6`}
+>
+  <slot />
+</h2>
