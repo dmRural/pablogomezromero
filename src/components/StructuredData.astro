@@ -1,0 +1,130 @@
+---
+interface Props {
+  type?: "Organization" | "Person" | "Service" | "WebSite";
+  page?: "home" | "emprendimiento" | "finanzas" | "formacion";
+}
+
+const { type = "WebSite", page = "home" } = Astro.props;
+
+// Datos base de la organización/persona
+const baseData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Pablo Gómez Romero",
+  jobTitle: "Asesor Financiero",
+  description:
+    "Asesor financiero especializado en consultoría para emprendedores, formación empresarial y desarrollo de negocios",
+  url: "https://pablogomezromero.com",
+  sameAs: [
+    "https://www.linkedin.com/in/pablogomezromero",
+    "https://twitter.com/pablogomezromero",
+  ],
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "ES",
+  },
+  telephone: "+34659291511",
+  email: "contacto@pablogomezromero.com",
+};
+
+// Schema específico según la página
+let schemaData;
+
+switch (page) {
+  case "home":
+    schemaData = [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Pablo Gómez Romero - Asesor Financiero",
+        description:
+          "Pablo Gómez Romero, asesor financiero especializado en consultoría para emprendedores, formación empresarial y desarrollo de negocios",
+        url: "https://pablogomezromero.com",
+        author: baseData,
+        potentialAction: {
+          "@type": "SearchAction",
+          target: "https://pablogomezromero.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string",
+        },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        name: "Asesoría Financiera Pablo Gómez Romero",
+        description:
+          "Servicios de asesoría financiera, consultoría empresarial y formación para emprendedores",
+        provider: baseData,
+        areaServed: "España",
+        serviceType: [
+          "Asesoría Financiera",
+          "Consultoría Empresarial",
+          "Formación Empresarial",
+        ],
+        url: "https://pablogomezromero.com",
+      },
+      baseData,
+    ];
+    break;
+
+  case "finanzas":
+    schemaData = [
+      {
+        "@context": "https://schema.org",
+        "@type": "FinancialService",
+        name: "Asesoría Financiera",
+        description:
+          "Servicios especializados de asesoría financiera, consultoría económica y gestión patrimonial personalizada",
+        provider: baseData,
+        serviceType: "Financial Planning",
+        areaServed: "España",
+        url: "https://pablogomezromero.com/finanzas",
+      },
+      baseData,
+    ];
+    break;
+
+  case "emprendimiento":
+    schemaData = [
+      {
+        "@context": "https://schema.org",
+        "@type": "ConsultingService",
+        name: "Consultoría para Emprendedores",
+        description:
+          "Consultoría especializada para emprendedores y PYMES, asesoramiento personalizado y acompañamiento profesional",
+        provider: baseData,
+        serviceType: "Business Consulting",
+        areaServed: "España",
+        url: "https://pablogomezromero.com/emprendimiento",
+      },
+      baseData,
+    ];
+    break;
+
+  case "formacion":
+    schemaData = [
+      {
+        "@context": "https://schema.org",
+        "@type": "EducationalService",
+        name: "Formación Empresarial",
+        description:
+          "Cursos y formaciones especializadas en finanzas, economía y educación financiera para empresarios y emprendedores",
+        provider: baseData,
+        serviceType: "Professional Training",
+        areaServed: "España",
+        url: "https://pablogomezromero.com/formacion",
+        courseMode: ["Online", "Presential"],
+      },
+      baseData,
+    ];
+    break;
+
+  default:
+    schemaData = [baseData];
+}
+---
+
+{
+  schemaData.map((schema) => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))
+}

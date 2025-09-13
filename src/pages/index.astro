@@ -15,7 +15,12 @@ import SectionTitle from "../components/SectionTitle.astro";
 const features = await getCollection("features");
 ---
 
-<Layout>
+<Layout
+  title="Pablo Gómez Romero - Asesor Financiero y Consultor para Emprendedores"
+  description="Especialista en asesoría financiera, emprendimiento y formación empresarial. Ayudo a emprendedores y empresas a optimizar sus finanzas y desarrollar sus negocios."
+  keywords="asesor financiero, consultoría empresarial, emprendimiento, formación empresarial, finanzas para emprendedores, Pablo Gómez Romero, desarrollo de negocios, productividad empresarial"
+  structuredDataPage="home"
+>
   <Hero variant="light">
     <div slot="left" class="order-2 md:order-1">
       <div
