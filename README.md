@@ -1,62 +1,54 @@
-# Astro Starter Kit: Blog
+# pablogomezromero.com
 
-```sh
-npm create astro@latest -- --template blog
-```
+Sitio web personal de Pablo Gómez Romero ([pablogomezromero.com](https://pablogomezromero.com)).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Construido con [Astro](https://astro.build) como sitio estático, con contenido en MDX, estilos con Tailwind CSS, sitemap y RSS.
 
-Features:
+## Despliegue
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+El sitio se publica automáticamente en [GitHub Pages](https://docs.github.com/es/pages) cada vez que hay un push a la rama `master`, mediante GitHub Actions.
 
-## 🚀 Project Structure
+- **Workflow**: `.github/workflows/deploy.yml`
+- **Build**: `npm run build` → artefacto en `dist/`
+- **Dominio custom**: `pablogomezromero.com` (CNAME en repo + registros DNS en IONOS apuntando a GitHub Pages)
+- **HTTPS**: emitido automáticamente por Let's Encrypt
 
-Inside of your Astro project, you'll see the following folders and files:
+Si necesitas forzar un deploy manual, ve a Actions → *Deploy to GitHub Pages* → *Run workflow*.
+
+## Stack
+
+- [Astro 5](https://astro.build) — generador de sitios estáticos
+- [Tailwind CSS 4](https://tailwindcss.com) (vía `@tailwindcss/vite`)
+- `@astrojs/mdx`, `@astrojs/rss`, `@astrojs/sitemap` — integraciones oficiales
+- `sharp` — optimización de imágenes
+- `astro-embed` — embeds para redes sociales
+
+## 🧞 Comandos
+
+Todos los comandos se ejecutan desde la raíz del proyecto:
+
+| Comando                   | Acción                                               |
+| :------------------------ | :--------------------------------------------------- |
+| `npm install`             | Instala dependencias                                 |
+| `npm run dev`             | Inicia el servidor local en `http://localhost:4321`  |
+| `npm run build`           | Genera el sitio de producción en `./dist/`            |
+| `npm run preview`         | Previsualiza localmente el build antes de publicar   |
+| `npm run astro ...`       | Ejecuta comandos CLI (`astro add`, `astro check`, …) |
+| `npm run astro -- --help` | Muestra la ayuda del CLI de Astro                    |
+
+## Estructura
 
 ```text
-├── public/
+├── public/              # assets estáticos servidos tal cual
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
+│   ├── components/      # componentes Astro
+│   ├── content/         # colecciones (blog, etc.)
+│   ├── layouts/         # plantillas de página
+│   └── pages/           # rutas: cada archivo = una ruta
+├── .github/workflows/   # CI/CD (deploy a GitHub Pages)
 ├── astro.config.mjs
-├── README.md
 ├── package.json
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+Los `.astro`/`.md` en `src/pages/` se convierten en rutas según el nombre del archivo.
