@@ -1,1 +1,30 @@
 @import "tailwindcss";
+
+@font-face { font-family: "Atkinson"; src: url("/fonts/atkinson-regular.woff") format("woff"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Atkinson"; src: url("/fonts/atkinson-bold.woff") format("woff"); font-weight: 700 900; font-display: swap; }
+
+html { scroll-behavior: smooth; }
+body { background: #faf9f6; color: #243244; font-family: "Atkinson", ui-sans-serif, system-ui, sans-serif; }
+::selection { background: #bae6fd; color: #0b1f3a; }
+.eyebrow { color: #0369a1; font-size: .73rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.display-title { color: #0b1f3a; font-family: Georgia, "Times New Roman", serif; font-weight: 500; letter-spacing: -.045em; line-height: .98; }
+.rule { width: 3.25rem; height: 2px; background: #0284c7; }
+.btn-primary, .btn-secondary { align-items: center; border-radius: 9999px; display: inline-flex; font-size: .9rem; font-weight: 700; justify-content: center; padding: .85rem 1.35rem; transition: transform .2s ease, background .2s ease, border-color .2s ease; }
+.btn-primary { background: #0284c7; color: white; }
+.btn-primary:hover { background: #075985; transform: translateY(-1px); }
+.btn-secondary { border: 1px solid #b9ddec; color: #075985; }
+.btn-secondary:hover { border-color: #0284c7; background: #eff8fc; }
+.card { border: 1px solid #dde9ed; background: #fff; }
+
+@media (max-width: 767px) {
+  #mobile-menu.is-open {
+    align-items: stretch;
+    background: #0b1f3a !important;
+    color: #fff !important;
+    display: flex !important;
+    min-height: 100dvh;
+  }
+
+  #mobile-menu.is-open a { color: #fff !important; }
+  #mobile-menu.is-open a:last-child { color: #075985 !important; }
+}

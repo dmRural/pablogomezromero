@@ -1,65 +1,12 @@
 ---
-import { SITE_TITLE } from "../consts";
-import Icon from "./Icon.astro";
-import WhatsappLink from "./WhatsappLink.astro";
-
 const today = new Date();
 ---
 
-<footer
-  class="w-full bg-gray-50 py-10 px-4 flex flex-col items-center gap-8 border-t border-gray-200"
->
-  <div class="w-full max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-8">
-    <!-- Sección de contacto -->
-    <div class="flex flex-col gap-2 items-center md:items-start">
-      <h4 class="font-bold text-lg mb-2">Contacto</h4>
-      <div class="flex items-center gap-2">
-        <Icon name="phone" class="w-5 h-5" />
-        <span>659 291 511</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <Icon name="quote" class="w-5 h-5" />
-        <a href="mailto:hola@pablogomezromero.com" class="underline"
-          >hola@pablogomezromero.com</a
-        >
-      </div>
-    </div>
-    <!-- Sección de navegación -->
-    <div class="flex flex-col gap-2 items-center">
-      <h4 class="font-bold text-lg mb-2">Secciones</h4>
-      <a href="/emprendimiento" class="hover:underline">Emprendimiento</a>
-      <a href="/finanzas" class="hover:underline">Finanzas</a>
-      <a href="/formacion" class="hover:underline">Formación</a>
-    </div>
-    <!-- Sección de redes sociales -->
-    <div class="flex flex-col gap-2 items-center md:items-end">
-      <h4 class="font-bold text-lg mb-2">Sígueme</h4>
-      <div class="flex gap-4">
-        <a
-          href="https://www.linkedin.com/in/pablogomezromero/"
-          target="_blank"
-          aria-label="LinkedIn"
-        >
-          <Icon
-            name="linkedin"
-            class="w-7 h-7 fill-[black] hover:scale-110 transition"
-          />
-        </a>
-        <a
-          href="https://www.instagram.com/pablo_gomez_romero"
-          target="_blank"
-          aria-label="Instagram"
-        >
-          <Icon
-            name="instagram"
-            class="w-7 h-7 fill-[#FF0069] hover:scale-110 transition"
-          />
-        </a>
-      </div>
-    </div>
+<footer class="border-t border-slate-200 bg-white px-5 py-14">
+  <div class="mx-auto grid max-w-6xl gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
+    <div><img class="h-12 w-auto" src="/logo.png" alt="Pablo Gómez Romero" /><p class="mt-5 max-w-sm text-sm leading-6 text-slate-600">Asesoramiento financiero, emprendimiento y formación desde La Rioja, para toda España.</p></div>
+    <div><p class="eyebrow">Áreas</p><div class="mt-4 flex flex-col gap-2 text-sm font-bold text-[#0b1f3a]"><a href="/finanzas">Finanzas</a><a href="/emprendimiento">Emprendimiento</a><a href="/formacion">Formación</a></div></div>
+    <div><p class="eyebrow">Contacto</p><div class="mt-4 flex flex-col gap-2 text-sm text-slate-600"><a class="font-bold text-[#0b1f3a]" href="https://wa.me/34659291511" target="_blank">659 291 511</a><a href="mailto:hola@pablogomezromero.com">hola@pablogomezromero.com</a><div class="mt-2 flex gap-4 font-bold text-[#0369a1]"><a href="https://www.linkedin.com/in/pablogomezromero/" target="_blank">LinkedIn</a><a href="https://www.instagram.com/pablo_gomez_romero" target="_blank">Instagram</a></div></div></div>
   </div>
-  <div class="text-center text-sm text-gray-500 mt-8">
-    &copy; {today.getFullYear()} Pablo Gómez Romero. Todos los derechos reservados.
-    <span class="block mt-1 text-xs text-gray-400">Con amor desde La Rioja ❤️</span>
-  </div>
+  <div class="mx-auto mt-12 flex max-w-6xl flex-col gap-3 border-t border-slate-100 pt-5 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between"><span>© {today.getFullYear()} Pablo Gómez Romero. Todos los derechos reservados.</span><div class="flex gap-4"><a href="/aviso-legal">Aviso legal</a><a href="/privacidad">Privacidad</a><a href="/cookies">Cookies</a></div></div>
 </footer>

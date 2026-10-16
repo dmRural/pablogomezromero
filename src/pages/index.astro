@@ -1,174 +1,39 @@
 ---
-import Hero from "../components/Hero.astro";
-import Title from "../components/Title.astro";
 import Layout from "../layouts/Layout.astro";
-import AccentText from "../components/AccentText.astro";
-import Icon from "../components/Icon.astro";
-import SubSubTitle from "../components/SubSubTitle.astro";
-import Text from "../components/Text.astro";
-import { getCollection } from "astro:content";
-import Block from "../components/Block.astro";
-import Button from "../components/Button.astro";
-import Quotes from "../components/Quotes.astro";
-import SectionTitle from "../components/SectionTitle.astro";
 
-const features = await getCollection("features");
+const areas = [
+  { number: "01", title: "Finanzas", text: "Planificación financiera, ahorro, inversión y decisiones patrimoniales con una mirada clara y personal.", href: "/finanzas", label: "Conocer finanzas" },
+  { number: "02", title: "Emprendimiento", text: "Estrategia, viabilidad y acompañamiento para convertir una idea en un proyecto sostenible.", href: "/emprendimiento", label: "Impulsar mi proyecto" },
+  { number: "03", title: "Formación", text: "Talleres, cursos y conferencias que hacen comprensibles las finanzas y la empresa.", href: "/formacion", label: "Ver formación" },
+];
+
+const collaborators = ["ader", "aertic", "unir", "ur", "emprende-rioja", "fer"];
 ---
 
-<Layout
-  title="Asesor Financiero para Emprendedores | Pablo Gómez Romero"
-  description="Asesor financiero especializado en emprendedores. Te ayudo a optimizar tus finanzas, planificar inversiones y asegurar la rentabilidad de tu negocio. Consulta gratuita."
-  keywords="asesor financiero, consultoría empresarial, emprendimiento, formación empresarial, finanzas para emprendedores, Pablo Gómez Romero, desarrollo de negocios, productividad empresarial"
-  structuredDataPage="home"
->
-  <Hero variant="light">
-    <div slot="left" class="order-2 md:order-1">
-      <div
-        class="flex flex-col md:items-start md:text-left items-center text-center order-2 md:order-1 gap-6"
-      >
-        <h1
-          class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter text-gray-800 uppercase"
-        >
-          Hola! soy
-          <br class="hidden lg:inline-block" />
-          <AccentText>Pablo</AccentText> Gómez
-          <br class="hidden lg:inline-block" />Romero
-        </h1>
-        <Text>
-          Nací en Logroño el 1 de agosto de 1991, mis padres son de 2
-          pueblecitos riojanos. A mi padre y mi tío le debo la pasión por la
-          economía, el fútbol y la bicicleta. Soy una persona de múltiples
-          intereses y fuerte entusiasmo por ellos; entre ellos la economía, los
-          deportes, la política y los viajes.
-        </Text>
-        <div class="flex justify-start gap-4">
-          <a
-            href="https://www.linkedin.com/in/pablogomezromero/"
-            target="_blank"
-          >
-            <Icon name="linkedin" class="w-12 h-12 fill-[black]" />
-          </a>
-          <a
-            href="https://www.instagram.com/pablo_gomez_romero"
-            target="_blank"
-          >
-            <Icon name="instagram" class="w-12 h-12 fill-[#FF0069]" />
-          </a>
+<Layout title="Asesor financiero y consultor | Pablo Gómez Romero" description="Asesoramiento financiero, emprendimiento y formación desde La Rioja, para toda España." structuredDataPage="home">
+  <main>
+    <section class="overflow-hidden bg-[#eff8fc]">
+      <div class="mx-auto grid min-h-[620px] max-w-6xl items-center gap-10 px-5 py-16 lg:grid-cols-[1.1fr_.9fr] lg:px-8 lg:py-20">
+        <div class="relative z-10">
+          <p class="eyebrow">Asesor financiero · Consultor · Formador</p>
+          <h1 class="display-title mt-6 max-w-2xl text-5xl sm:text-6xl lg:text-7xl">Decisiones claras para avanzar con confianza.</h1>
+          <p class="mt-7 max-w-xl text-lg leading-8 text-slate-600">Acompaño a personas, emprendedores y organizaciones a ordenar sus finanzas, impulsar sus proyectos y aprender con criterio.</p>
+          <div class="mt-9 flex flex-wrap gap-3"><a class="btn-primary" href="https://wa.me/34659291511?text=Hola%20Pablo%2C%20me%20gustar%C3%ADa%20hablar%20contigo" target="_blank" rel="noopener">Habla conmigo</a><a class="btn-secondary" href="#areas">Conocer servicios</a></div>
+          <div class="mt-7 max-w-xl border-l-2 border-sky-400 pl-5 text-[.95rem] leading-7 text-slate-600"><p class="mb-2 text-xs font-bold uppercase tracking-[.14em] text-sky-700">Una nota personal</p><p>“Nací en Logroño el 1 de agosto de 1991, mis padres son de 2 pueblecitos riojanos. A mi padre y mi tío le debo la pasión por la economía, el fútbol y la bicicleta. Soy una persona de múltiples intereses y fuerte entusiasmo por ellos; entre ellos la economía, los deportes, la política y los viajes.”</p></div>
+          <div class="mt-8 grid max-w-xl grid-cols-2 gap-x-7 gap-y-5 border-t border-sky-200 pt-6 text-sm text-slate-600"><span><b class="block text-lg text-[#0b1f3a]">Personal</b>Atención directa</span><span><b class="block text-lg text-[#0b1f3a]">Presencial</b>La Rioja</span><span><b class="block text-lg text-[#0b1f3a]">También online</b>Toda España</span><span><b class="block text-lg text-[#0b1f3a]">Experiencia</b>Entidades y universidades</span></div>
         </div>
+        <div class="relative mx-auto w-full max-w-md lg:max-w-none"><div class="absolute -inset-5 rounded-[2.5rem] border border-sky-200"></div><img class="relative aspect-[4/5] w-full rounded-[2rem] object-cover object-center" src="/pablo-gomez-romero.png" alt="Retrato profesional de Pablo Gómez Romero" /></div>
       </div>
-    </div>
-    <div
-      slot="right"
-      class="order-1 flex items-center justify-center md:order-2"
-    >
-      <img
-        class="object-cover object-center rounded"
-        alt="Retrato profesional de Pablo Gómez Romero asesor financiero en Logroño"
-        src="pablo-gomez-romero.png"
-      />
-    </div>
-  </Hero>
-  <section class="container mx-auto bg-white py-8 px-4 md:px-0">
-    <SectionTitle text="Ya confían en mi" variant="default" size="lg" />
-    <div
-      class="grid grid-cols-2 md:grid-cols-3 gap-6 items-center justify-items-center py-4"
-    >
-      <a href="https://www.ader.es/" target="_blank">
-        <img
-          src="/images/pablo-gomez-colaborador-ader.jpg"
-          alt="Logo de ADER Agencia de Desarrollo Económico de La Rioja colaborador de Pablo Gómez Romero"
-          class="w-32 md:w-40 h-auto object-contain"
-        />
-      </a>
-      <a
-        href="https://www.larioja.org/innovacion/fr/clusters-centros-tecnologicos/red-aeis/clusters-riojanos/asociacion-empresas-riojanas-tic-aertic"
-        target="_blank"
-      >
-        <img
-          src="/images/pablo-gomez-colaborador-aertic.jpg"
-          alt="Logo de AERTIC Asociación de Empresas Riojanas TIC colaborador de Pablo Gómez Romero"
-          class="w-32 md:w-40 h-auto object-contain"
-        />
-      </a>
-      <a href="https://www.unir.net/" target="_blank">
-        <img
-          src="/images/pablo-gomez-colaborador-unir.png"
-          alt="Logo de UNIR Universidad Internacional de La Rioja colaborador de Pablo Gómez Romero"
-          class="w-32 md:w-40 h-auto object-contain"
-        />
-      </a>
-      <a href="https://www.unirioja.es/" target="_blank">
-        <img
-          src="/images/pablo-gomez-colaborador-ur.png"
-          alt="Logo de Universidad de La Rioja colaborador de Pablo Gómez Romero"
-          class="w-32 md:w-40 h-auto object-contain"
-        />
-      </a>
-      <a href="https://emprenderioja.es/" target="_blank">
-        <img
-          src="/images/pablo-gomez-colaborador-emprende-rioja.jpg"
-          alt="Logo de Emprende Rioja colaborador de Pablo Gómez Romero asesor financiero"
-          class="w-32 md:w-40 h-auto object-contain"
-        />
-      </a>
-      <a href="https://www.fer.es/" target="_blank">
-        <img
-          src="/images/pablo-gomez-colaborador-fer.jpg"
-          alt="Logo de FER Federación de Empresarios de La Rioja colaborador de Pablo Gómez Romero"
-          class="w-32 md:w-40 h-auto object-contain"
-        />
-      </a>
-    </div>
-  </section>
-  <section class="container mx-auto bg-white py-8 px-4 md:px-0">
-    <SectionTitle
-      text="Puedes contar conmigo para"
-      variant="default"
-      size="lg"
-    />
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {
-        features.map((feature) => (
-          <Block variant="gray">
-            <div class="flex flex-col gap-6 h-full">
-              <div class="flex gap-3 items-center">
-                <Icon name={feature.data.icon} class="w-8 h-8 fill-sky-600" />
-                <SubSubTitle>{feature.data.title}</SubSubTitle>
-              </div>
-              <Text>{feature.data.description}</Text>
-              <div class="mt-auto pt-4">
-                <a href={`/${feature.id}`}>
-                  <Button variant="primary">Saber más</Button>
-                </a>
-              </div>
-            </div>
-          </Block>
-        ))
-      }
-    </div>
-  </section>
-  <section class="container mx-auto bg-white py-8 px-4">
-    <SectionTitle text="Lo que dicen de mi" variant="default" size="lg" />
-    <Quotes
-      quotes={[
-        {
-          description:
-            "Pablo explica muy bien conceptos financieros y económicos complejos de una forma sencilla y siempre con ejemplos prácticos que son muy fáciles de entender. Se nota que domina la materia y se ve que es un profesional con experiencia tanto en lo que a conocimientos se refiere como a la hora de enseñar. Además, se adapta a tu ritmo y a tu nivel inicial de conocimientos. La verdad que es totalmente recomendable.",
-          author:
-            "Samuel Barrio Corral - Técnico Superior en SEPE y Graduado en Admón y Dirección de Empresas",
-        },
-        {
-          description:
-            'Conozco a Pablo desde hace muchísimos años y ahora nos hemos vuelto a cruzar. Ha sido "mi jefe" durante unos meses y ha demostrado lo currante, buena persona y atento que es. ¡Muy agradecida!',
-          author:
-            "Berta Fernández Rourera - Administrativo en UNIR y Graduada en Admón y Dirección de Empresas",
-        },
-        {
-          description:
-            "Pablo es un buen pedagogo en temas de ahorro e inversión, así como conceptos técnicos en materia de economía. Te hace fácil entender conceptos diversos como interés compuesto, horizonte temporal, efecto coste medio, diversificación, etc. Totalmente recomendable.",
-          author: "Alejandro Bernabé Mora - Técnico Superior en SEPE",
-        },
-      ]}
-    />
-  </section>
+    </section>
+
+    <section class="bg-white px-5 py-12"><div class="mx-auto max-w-6xl"><p class="text-center text-xs font-bold uppercase tracking-[.18em] text-slate-500">Han confiado en mí</p><div class="mt-8 grid grid-cols-2 items-center gap-x-8 gap-y-7 sm:grid-cols-3 lg:grid-cols-6">{collaborators.map((name) => <img class="mx-auto max-h-14 max-w-[120px] object-contain grayscale opacity-65 transition hover:grayscale-0 hover:opacity-100" src={`/images/pablo-gomez-colaborador-${name}.${name === "unir" ? "png" : "jpg"}`} alt={`Entidad colaboradora de Pablo Gómez Romero`} />)}</div></div></section>
+
+    <section id="areas" class="mx-auto max-w-6xl px-5 py-20 lg:px-8"><div class="max-w-2xl"><p class="eyebrow">Cómo puedo ayudarte</p><h2 class="display-title mt-4 text-4xl sm:text-5xl">Una conversación útil puede cambiar el siguiente paso.</h2></div><div class="mt-12 grid gap-4 lg:grid-cols-3">{areas.map((area) => <a href={area.href} class="card group flex min-h-72 flex-col p-7 transition hover:-translate-y-1 hover:border-sky-300"><span class="text-sm font-bold text-sky-600">{area.number}</span><h3 class="mt-10 font-serif text-3xl text-[#0b1f3a]">{area.title}</h3><p class="mt-4 leading-7 text-slate-600">{area.text}</p><span class="mt-auto pt-6 text-sm font-bold text-[#0369a1]">{area.label} <span class="ml-1">→</span></span></a>)}</div></section>
+
+    <section id="sobre-pablo" class="bg-[#0b1f3a] px-5 py-20 text-white"><div class="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[.8fr_1.2fr] lg:px-8"><div><p class="eyebrow !text-sky-300">Sobre mí</p><div class="rule mt-6 bg-sky-300"></div></div><div><h2 class="font-serif text-4xl leading-tight sm:text-5xl">Finanzas explicadas con cercanía, contexto y sentido práctico.</h2><p class="mt-7 max-w-2xl text-lg leading-8 text-slate-300">Soy Pablo Gómez Romero. Trabajo para que cada persona o empresa pueda comprender su situación, tomar decisiones informadas y mantener el rumbo con tranquilidad.</p><a class="mt-8 inline-block text-sm font-bold text-sky-300" href="/finanzas">Conocer mi forma de trabajar →</a></div></div></section>
+
+    <section class="mx-auto max-w-6xl px-5 py-20 lg:px-8"><div class="grid gap-8 lg:grid-cols-[.8fr_1.2fr]"><div><p class="eyebrow">Lo que dicen de mí</p><h2 class="display-title mt-4 text-4xl">Explicar bien también forma parte del trabajo.</h2></div><figure class="card p-8 sm:p-10"><blockquote class="font-serif text-2xl leading-relaxed text-[#0b1f3a]">“Pablo explica conceptos financieros y económicos complejos de una forma sencilla, práctica y fácil de entender.”</blockquote><figcaption class="mt-7 border-t border-slate-100 pt-5 text-sm font-bold text-slate-600">Samuel Barrio Corral · Técnico Superior en SEPE</figcaption></figure></div></section>
+
+    <section class="bg-sky-600 px-5 py-16 text-center text-white"><p class="eyebrow !text-sky-100">Primera conversación</p><h2 class="mx-auto mt-4 max-w-2xl font-serif text-4xl leading-tight sm:text-5xl">Aclaremos tu siguiente decisión.</h2><a class="mt-8 inline-flex rounded-full bg-white px-6 py-3 text-sm font-bold text-[#075985]" href="https://wa.me/34659291511?text=Hola%20Pablo%2C%20me%20gustar%C3%ADa%20hablar%20contigo" target="_blank" rel="noopener">Habla conmigo</a></section>
+  </main>
 </Layout>
